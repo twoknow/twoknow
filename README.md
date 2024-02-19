@@ -1,1 +1,1 @@
-- 👋 I’m MZ, a math curriculum specialist
+- 👋 I’m FreeZ, a math PhD student.
