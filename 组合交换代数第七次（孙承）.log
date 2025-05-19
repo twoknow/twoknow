@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.5.15)  15 MAY 2025 20:11
+This is LuaHBTeX, Version 1.22.0 (MiKTeX 25.4) (format=lualatex 2025.5.15)  19 MAY 2025 22:05
  restricted system commands enabled.
  file:line:error style messages enabled.
 **e:/LaTex/组合交换代数第七次（孙承）.tex
@@ -1245,7 +1245,7 @@ L3 programming layer <2022/07/14>
  ***********
 Package rerunfilecheck Info: File `组合交换代数第七次（孙承）.out'
  has not changed.
-(rerunfilecheck)             Checksum: DB5680DABA7A573D699AA327EA918AE2;448.
+(rerunfilecheck)             Checksum: 57CCBE656B159BA72A1050D98EE5369B;440.
 )
 
 Here is how much of LuaTeX's memory you used:
@@ -1254,7 +1254,7 @@ Here is how much of LuaTeX's memory you used:
  946 words of node memory still in use:
    8 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 164 attribute, 61 glue_spe
 c, 24 attribute_list, 2 write, 11 user_defined nodes
-   avail lists: 1:1,2:20115,3:218,4:198,5:287,6:21,7:3840,8:44,9:1189,10:4,11:23
+   avail lists: 1:1,2:20103,3:218,4:198,5:287,6:21,7:3837,8:44,9:1189,10:4,11:23
 ,12:1
  54832 multiletter control sequences out of 65536+600000
  70 fonts using 93642543 bytes
@@ -1268,7 +1268,7 @@ fonts/type1/public/amsfonts/cm/cmmi8.pfb><D:/MikTex/fonts/type1/public/amsfonts/
 cm/cmr12.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/MikTex/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/c
 msy8.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 组合交换代数第七次（孙承）.pdf (2 pages, 267785 b
+Output written on 组合交换代数第七次（孙承）.pdf (2 pages, 267775 b
 ytes).
 
 PDF statistics: 113 PDF objects out of 1000 (max. 8388607)
