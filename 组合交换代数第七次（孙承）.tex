@@ -1,0 +1,167 @@
+\documentclass[12pt,a4paper]{ctexbook} % 使用ctexbook文档类
+
+% openany
+\usepackage{graphicx} % For including images
+\usepackage{tikz} %For drawing pictures
+\usepackage{array}
+\usepackage{tabularx} % Both are for tabular
+\usepackage{subcaption}
+\usepackage{hyperref} % For hyperlinks in the document
+\usepackage{fancyhdr} % For custom headers and footers
+\usepackage{amsthm} % For theorem environments
+\usepackage{amsmath} % For additional math symbols
+\usepackage{amssymb} % For additional math symbols
+\usepackage{amsfonts} % For \mathbb
+\usepackage{fontspec} % For font selection
+\usepackage{titlesec} % For customizing section titles
+\usepackage{enumitem}
+\usepackage[dvipsnames]{xcolor} % 使用 xcolor 包并启用更多预定义颜色
+\usepackage{wrapfig} % 用于图片环绕
+\usepackage{float} % 导入 float 包
+
+\setmainfont{Times New Roman}
+%\newfontfamily\kaishu{Kaiti SC} % 楷体
+%\newfontfamily\heiti{Heiti SC} % 黑体
+%\newfontfamily\fangsong{STFangsong} % 仿宋
+%\newfontfamily\songti{Songti SC} % 宋体
+
+% 设置中文标点符号后自动添加空格
+%\CJKsetecglue{，.  ！？：；}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+%\theoremstyle{upright}
+\newcounter{theorem}[section]
+\renewcommand{\thetheorem}{\thesection.\arabic{theorem}}
+
+% Define a new proof environment with Fangsong font
+\newenvironment{pf}[1][证明]{\par\noindent{\kaishu\textbf{#1.} }\setmainfont{STFangsong}\normalfont}{\hfill\ensuremath{\Box}\par}
+
+
+
+
+\renewcommand{\thetheorem}{\thesection.\arabic{theorem}}
+
+\newtheorem{theoreminner}[theorem]{定理}
+\newtheorem*{theorem*}{定理}
+\newtheorem{definition}[theorem]{定义}
+\newtheorem{lemma}[theorem]{引理}
+\newtheorem{proposition}[theorem]{命题}
+\newtheorem{corollary}[theorem]{推论}
+\newtheorem{example}[theorem]{例}
+\newtheorem{remark}[theorem]{注}
+\newtheorem{exercise}[theorem]{练习}
+\newtheorem{conjecture}[theorem]{猜想}
+\newtheorem*{remark*}{注}
+\newtheorem*{conjecture*}{猜想}
+\newtheorem*{example*}{例}
+\newcommand{\df}[1]{\textcolor{Maroon}{#1}}
+
+% 设置图片按照节标号
+\numberwithin{figure}{section}
+
+% Define the new problem environment
+\newtheoremstyle{problemstyle} % 定义新的样式
+  {3pt} % 上方空白
+  {3pt} % 下方空白
+  {\kaishu} % 正文字体
+  {} % 缩进量
+  {\bfseries} % 头部字体
+  {} % 头部后标点
+  { } % 头部后空格
+  {\thmname{#1}\thmnumber{ #2}.\thmnote{ #3}\newline} % 头部格式，标题后换行
+
+\theoremstyle{problemstyle}
+\newtheorem{problem}{}[section]
+
+\renewenvironment{proof}[1][证明]{\par\noindent{\kaishu\textbf{#1.} }\normalfont\fontspec{STFangsong}}{\hfill\ensuremath{\Box}\par}
+% Customize section titles to add the "§" symbol and independent numbering
+\titleformat{\section}[block]
+  {\normalfont\Large\bfseries}
+  {\S\arabic{section}}
+  {1em}
+  {}
+
+% Customize subsection titles with independent numbering
+\titleformat{\subsection}[block]
+  {\normalfont\large\bfseries}
+  {\thesection.\arabic{subsection}}
+  {1em}
+  {}
+
+
+
+% Redefine section and subsection numbering to be independent
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\thesection.\arabic{subsection}}
+% Define a new proof environment with STFangsong font
+\renewenvironment{proof}[1][证明]{\par\noindent{\kaishu\textbf{#1.} }\normalfont\CJKfamily{zhfs}}{\hfill\ensuremath{\Box}\par}
+
+%% Define a new remark* environment with SimHei for "注：" and Kaiti SC for the content, without using the theorem counter
+%\newenvironment{remark*}[1][注记.]{\par\noindent{\textbf{#1} }\kaishu}{\par}
+
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+}
+
+\numberwithin{equation}{section} % 按 section 编号公式
+
+
+\title{{\kaishu\fontsize{48}{60}\selectfont 组~合~交~换~代~数~讲~义}} % Set the title in Kaiti font and large size
+%\author{\bf }
+%\date{\today}
+
+\begin{document}
+\section{20250424孙承}
+\subsection{ Hilbert function}
+
+回顾向量空间关于维数的结论：考虑$V ,W \subseteq  \mathbb{R}^d$,有 $$ dim(V+W)+dim(V\cap W)=dimV+dimW .$$
+可以将维数($dimension$)看作一种测度($valuation$), 并且它是一种不变量,即
+$$ dimension : \varphi \ valuation \ \& \ invariant. $$
+给定一个($simplicial$ $comlpex$) 单纯流形$\Delta$, 其内部元素称为面($face$), 并且所有的面($face$)都有相应的维数($dimension$，即由它所包含的元素的个数减去1),
+ $Hilbert$ $function$ 就是计数Stanley-Reisner环每一层的维数,维数本身可以视为一种测度不变量，
+    $$ Hilbert \ function=
+	\begin{cases}
+		\mathbb{R}\rightarrow\mathbb{R}, \\ 
+		d\mapsto\mathbb{K}[\Delta] ,\ \mathbb{K}[\Delta]=\mathbb{K}[x_{1}, \cdots x_{n}]/I_{\Delta}.
+	\end{cases}$$
+由前面Ehart级数$L_P(t) z^t$\rightarrow$\operatorname{Ehr}_P(z)$,
+\begin{align*}
+    \operatorname{Ehr}_P(z) 
+    &= 1 + \sum_{t \geq 1} L_P(t) z^t \\
+    &:= \frac{h^*(z)}{(1-z)^{d+1}} \\
+    &=\frac{h_d^* z^d + h_{d-1}^* z^{d-1} + \cdots + h_1^* z + h_0^*}{(1 - z)^{d+1}},
+\end{align*}
+
+类似考虑$dim[\Delta]$\rightarrow$F(\Delta,z)=\sum dim\mathbb{K}[\Delta]z^{t}=\frac{\sum h_{i}z^{i}}{(1-z)^{d}}$,\\
+引入$\theta =\sum \lambda_{i}x_{i}$是所有变量的线性组合，比如最长可以找到$d$长$\theta$,用Stanley-Reisner环删去$\frac{\sum h_{i}z^{i}}{(1-z)^{d}}$的分母，只留下分子部分，得到的新的交换环(交换代数),分子部分就是它的$Hilbert$级数。
+回忆之前遗留的问题：\\
+1. standard graded ring,\\
+2.  Noetherian,\\
+3. Cohen-Maraulay property=dimR=depth(R)。\\(环R的维数等于环R的深度$deepth$),
+其中$dimR$是$Krull$ $dimension$,是指这个环素理想所形成的量，最长的长度定义成$Krull$ $dimension$.而$deepth$与所选的(linear system paramter)线性系统向量$\theta =\sum \lambda_{i}x_{i}$密切相关，这两个量($dimR=depth(R)$)相等时才会满足$Cohen-Maraulay property$。
+
+\subsection{ 诺特环 (Noetherian ring)}
+参考书籍$《Hilbert \ Basis \ Theorem》$
+
+诺特环($Noetherian \ ring$)是抽象代数中一类满足升链条件的环。希尔伯特($Hilbert$)首先在研究不变量理论时证明了多项式环的每个理想都是有限生成的，随后德国数学家埃米·诺特($Emmy\ Noether$)从中提炼出升链条件，诺特环由此命名。
+
+希尔伯特基($Hilbert$ $Basis $)：对于一个多项式环$S=F[x_{1},\cdots，x_{n}]$，$S$的理想是有限生成的，$F=\mathbb{K,Z}$。
+
+诺特环: 对于任意一个抽象的环，如果它所有的理想都是有限生成的，则称其为诺特环。例如：多项式环
+$S=k[x_{1},\cdots，x_{n}]$是诺特环。
+
+注，现代版本的希尔伯特基定义：如果环$R$是诺特环，那么$R[x]$是诺特环。
+
+那么, $J \subseteq S, S/J$显然是诺特环。
+
+\end{document} 
