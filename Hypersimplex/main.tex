@@ -1,0 +1,305 @@
+\documentclass[12pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{eulervm}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\allowdisplaybreaks[4]
+\usepackage{amssymb}
+
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{decorations.pathreplacing, matrix}
+\usepackage{nicematrix}
+\usetikzlibrary{decorations.pathreplacing}
+\usepackage{xy}  % Consider loading xy-pic only if needed
+
+\usepackage{bm}
+\usepackage{dcolumn} %  This package is for aligning numbers in columns, useful for tables.
+\usepackage[mathscr]{eucal} % This package provides script fonts for mathematical calligraphic symbols.
+\usepackage{float}  % For float placement control (e.g., [H] for "exactly here")
+\usepackage{graphicx} % For including images
+
+\usepackage{times} % This package is deprecated. Consider using a different font package if needed.
+\usepackage{epstopdf} % For including EPS images (usually not needed with pdflatex)
+
+\usepackage[square]{natbib} % Enables Author-Year citation style
+\usepackage{bibentry}
+\usepackage{cite} % For grouped citations like (1, 2, 3)
+
+
+\usepackage{youngtab}  % For Young tableaux
+\usepackage{ytableau}
+\ytableausetup{mathmode, boxsize=0.9em}
+
+\setlength{\evensidemargin}{0.3cm} % Consider unifying these lengths
+\setlength{\oddsidemargin}{0.3cm}  % Consider unifying these lengths
+\parskip=6pt
+\frenchspacing
+\textwidth=15cm
+\textheight=23cm
+\parindent=16pt
+\topmargin=-1.2cm
+
+% Theorem styles
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem*{pf}{Proof}
+
+\newtheorem{ex}[thm]{Example}
+\newtheorem{remark}[thm]{Remark}
+
+\newtheorem{prob}{Problem}[subsection]
+
+\numberwithin{equation}{subsection}
+
+%\usepackage{hyperref}  % Load hyperref LAST (important!)
+
+
+%-------------------------------------------------------------
+\begin{document}
+
+
+\begin{center}
+{\Large\bf 
+Notes on Unimodality of Hypersimplex
+%and 
+%Combinatorial Classes for \\[10pt]
+%Restrictions of a Hyperplane Arrangement
+}\\ [7pt]
+\end{center}
+
+\vskip 3mm
+
+\begin{center}
+Mingzhi Zhang
+\end{center}
+
+\vskip 3mm
+
+\section{Introduction}
+
+\subsection{Hypersimplex}
+Fix a positive integer $n$, and let $[n]:= \{1, 2, \cdots , n\}$. To any subset $S \subseteq [n]$, we associate the indicator vector:
+\[
+\chi_{S} = (\chi_{S}(1), \chi_{S}(2), \ldots, \chi_{S}(n))
+\]
+where 
+$\chi_{S}(i) = 
+\begin{cases} 
+1, & i \in S \\
+0, & i \notin S
+\end{cases}$.
+For $0 < k < n$, let $\binom{[n]}{k}$ be the family of all $k$-subsets of $[n]$. The \textit{hypersimplex} $\Delta_{k,n} \subseteq \mathbb{R}^n$ is the convex hull of the indicator vectors $\chi_I$ for $I \in \binom{[n]}{k}$. Equivalently, it can be defined as
+\[
+\Delta_{k,n} = \{(x_1, x_2, \cdots, x_n) \mid 0 \leq x_1, x_2, \cdots, x_n \leq 1; x_1 + x_2 + \cdots + x_n = k\}
+\]
+
+
+% Triangulations by Stanley
+\subsection{Stanley's Triangulations}
+Why the set defined by a permutation
+$$
+\nabla_w = \{(y_1,\dots,y_{n-1})\in [0,1]^{n-1} \mid 0 < y_{w(1)} < y_{w(2)} < \dots < y_{w(n-1)} < 1\}
+$$
+is indeed a simplex?
+
+Step-by-Step Explanation
+
+\begin{enumerate}
+    \item What is a simplex? A simplex is the simplest generalization of a triangle or tetrahedron to higher dimensions:
+    \begin{itemize}
+        \item 1-simplex: line segment (2 vertices)
+        \item 2-simplex: triangle (3 vertices)
+        \item 3-simplex: tetrahedron (4 vertices)
+        \item In general, an $(n-1)$-simplex in $\mathbb{R}^{n-1}$ is defined as the convex hull of exactly $n$ vertices, where these vertices are affinely independent (no vertex is a linear combination of the others with coefficients summing to 1).
+    \end{itemize}
+Formally, a simplex in $\mathbb{R}^{d}$ is the set
+$$
+\text{conv}(v_0, v_1, \dots, v_d) = \{ \lambda_0 v_0 + \lambda_1 v_1 + \dots + \lambda_d v_d \mid \lambda_i \ge 0, \sum_{i=0}^d \lambda_i = 1 \}.
+$$
+    \item Connecting our definition to a simplex. Our set is defined by ordering coordinates strictly:
+$$
+0 < y_{w(1)} < y_{w(2)} < \dots < y_{w(n-1)} < 1
+$$
+This set describes an "increasing path" from 0 up to 1 through all coordinates ordered by permutation $w$.
+
+Crucially, the closure of this set is given by allowing equality:
+$$
+0 \leq y_{w(1)} \leq y_{w(2)} \leq \dots \leq y_{w(n-1)} \leq 1
+$$
+The closure of the set $\nabla_w$ includes points where coordinates equal 0 or 1 and where multiple coordinates might equal each other.
+    \item Identifying the vertices of $\nabla_w$. The vertices of our simplex (the points we "move between") come from setting some subset of coordinates explicitly to either 0 or 1, following the strict inequalities. Specifically, consider the points formed by "corners" of the cube, where all coordinates are either 0 or 1.
+
+Start by examining the set of points:
+  $$
+  v_0=(0,0,\dots,0), \quad v_1=(1,1,\dots,1), \quad v_2,\dots,v_{n-1}
+  $$
+
+Other vertices $v_2,\dots,v_{n-1}$ are points obtained by moving from 0 to 1, coordinate by coordinate, respecting the given permutation $w$. Precisely, the vertices are given by turning coordinates from 0 to 1 one-by-one following the order defined by $w$.
+
+Thus, the vertices explicitly are the points:
+$$
+(0,0,\dots,0),\quad e_{w(1)},\quad e_{w(1)}+e_{w(2)},\quad \dots,\quad e_{w(1)}+e_{w(2)}+\dots+e_{w(n-1)}
+$$
+where $e_i$ is the unit vector in coordinate $i$. Notice that the last vertex is indeed the vector $(1,1,\dots,1)$.
+
+There are clearly exactly $n$ points, precisely what we need for a simplex in dimension $n-1$.
+    \item Affine independence of these vertices. To be sure we have a simplex, we must confirm affine independence of the vertices: affine independence intuitively means no vertex lies in the "flat" formed by the other vertices.
+
+Here, the vertices are carefully chosen so that each step strictly "moves upward" along a different coordinate axis: Start at $(0,\dots,0)$.
+Move in the direction of coordinate $w(1)$ first, then coordinate $w(2)$, and so on, until all coordinates become 1.
+
+Because each step introduces a new coordinate that was previously 0, each vertex introduces a new dimension (coordinate) independent of the previous vertices. Thus, each vertex is adding a completely independent "direction".
+
+Therefore, these vertices are clearly affinely independent. No vertex can be represented as an affine combination of the others.
+    \item Geometric intuition. Geometrically, the set described by the inequalities:
+  $$
+  0 < y_{w(1)} < y_{w(2)} < \dots < y_{w(n-1)} < 1
+  $$
+represents a "slice" of the cube defined by a strict ascending order of coordinates, forming a "staircase-like" path in higher dimensions.
+
+This "slice," when considered with its boundary, precisely matches the convex hull of the vertices we described, thus forming a simplex.
+
+This simplex shape is the "natural" generalized triangle (or tetrahedron in 3D) formed by stepping from $(0,\dots,0)$ to $(1,\dots,1)$ along axes in a strictly ordered manner.
+
+\end{enumerate}
+
+Summary (Why this is a simplex):
+\begin{enumerate}
+    \item The set defined by permutation ordering naturally identifies vertices at corners of the cube (coordinates either 0 or 1).
+    \item There are exactly $n$ vertices, perfect for an $(n-1)$-simplex.
+    \item The vertices are affinely independent because each one introduces a new coordinate direction.
+\end{enumerate}
+Thus, the set $\nabla_w$ is a simplex.
+
+
+% Volume and Ehrhart
+\subsection{Volume and Ehrhart series}
+We are mainly interested in the volume and Ehrhart seires of the characteristic polytopes. 
+We list the volume and Ehrhart series of $n$-gon up to 5-gon as follows:
+\begin{itemize}
+    \item 3-gon: 
+    \begin{align*}
+    \text{vol }P_{\chi}(Q_3) &= 1, \\
+    \text{Ehr}_{P_{\chi}(Q_3)}(z) &= \frac{1 + 4z + z^2}{(1 - z)^3}.
+    \end{align*}
+    \item 4-gon: 
+    \begin{align*}
+    \text{vol }P_{\chi}(Q_4) &= \frac{1}{2}, \\
+    \text{Ehr}_{P_{\chi}(Q_4)}(z) &= \frac{1 + 5z + 5z^2 + z^3}{(1 - z)^4}.
+    \end{align*}
+    \item 5-gon:
+    \begin{align*}
+    \text{vol }P_{\chi}(Q_5) &= \frac{5}{24}, \\
+    \text{Ehr}_{P_{\chi}(Q_5)}(z) &= \frac{1 + 6z + 11z^2 + 6z^3 + z^4}{(1 - z)^5}.
+    \end{align*}
+\end{itemize}
+
+From the examples we see unimodality in the $h^*$-polynomial, and it is natural to conjecture that:
+\begin{conj}
+    The coefficients $h^*_{i}$ in the $h^*$-polynomial of the Ehrhart series of characteristic polytopes of $n$-gon form a unimodal sequence.
+\end{conj}
+
+\section{Characteristic Polytope of $d$-cube $\square_{d}$}
+
+\subsection{Constructing by tensoring}
+The face lattice in example \ref{ex4gon} is also the face lattice for 2-cube, and we could already see that it is hard to visualize the characteristic polytope. An algorithm to construct the characteristic polytope of $d$-cube is provided as follows.
+
+\begin{itemize}
+    \item Step 1: Start with the $(d-1)$-dim simplicial complex $\Delta$ over $[d]$. Associate each face $\tau \in \Delta$ with the corresponding standard basis vector $e_{\tau} \in \mathbb{R}^{2^d}$.
+    \item Step 2: For $\sigma_{1},\sigma_{2}, \rho \in \Delta$, define 
+    \begin{align*}
+        e_{[\sigma_{1},\sigma_{2}]} &:= \sum_{\sigma_{1} \subset \tau \subset \sigma_{2}}e_{\tau}, \\
+        e_{[\sigma_{1},\sigma_{2}]} \otimes e_{\rho} &:= e_{[\sigma_{1} \cup \rho, \sigma_{2} \cup \rho]}.
+    \end{align*}
+    Specifically, $e_{\emptyset} \otimes e_{\rho} = e_{\rho}$.
+    \item Step 3: Let $P_{\chi}(\square_{d}) := \text{conv}\{\textbf{0}, \displaystyle \bigsqcup_{\substack{\tau \in \Delta \\ \rho \in \text{lk}_{\tau}(\Delta)}} e_{[\emptyset, \tau]} \otimes e_{\rho} \}$, and we claim that:
+\end{itemize}
+
+\begin{lemma}
+    $P_{\chi}(\square_{d})$ is the characteristic polytope of the $d$-cube $\square_{d}$.
+\end{lemma}
+\begin{pf}
+    It is direct from the construction above.
+\end{pf}
+% $\Delta^{\tau} := \{\rho \in \Delta \mid \rho \subset \tau\}$.
+We illustrate the construction with the following example.
+\begin{ex}
+    Let $d = 2$, and we have the simplicial complex $\Delta = \{\emptyset, 1, 2, 12\}$. The corresponding basis vectors are:
+    $e_{\emptyset} = (1,0,0,0), 
+    e_{1} =(0,1,0,0), 
+    e_{2} =(0,0,1,0), 
+    e_{12} =(0,0,0,1)$.
+    By tensoring we have:
+    \begin{align*}
+        &e_{\emptyset} \otimes e_{\emptyset} = e_{\emptyset} = (1,0,0,0) := v_{1} \\
+        &e_{\emptyset} \otimes e_{1} = e_{1} = (0,1,0,0):= v_{2} \\ 
+        &e_{\emptyset} \otimes e_{2} = e_{2} = (0,0,1,0):= v_{3} \\ 
+        &e_{\emptyset} \otimes e_{12} = e_{12} = (0,0,0,1):= v_{4} \\ 
+        &e_{[\emptyset, 1]} \otimes e_{\emptyset} = e_{[\emptyset, 1]} = e_{\emptyset} + e_{1} = (1,1,0,0):= v_{5} \\
+        &e_{[\emptyset, 1]} \otimes e_{2} = e_{[2, 12]} = e_{2} + e_{12} = (0,0,1,1):= v_{6} \\
+        &e_{[\emptyset, 2]} \otimes e_{\emptyset} = e_{[\emptyset, 2]} = e_{\emptyset} + e_{2} = (1,0,1,0):= v_{7} \\
+        &e_{[\emptyset, 2]} \otimes e_{1} = e_{[1, 12]} = e_{1} + e_{12} = (0,1,0,1):= v_{8} \\
+        &e_{[\emptyset, 12]} \otimes e_{\emptyset} = e_{[\emptyset, 12]} = e_{\emptyset} + e_{1} + e_{2} + e_{12} = (1,1,1,1):= v_{9} \\
+    \end{align*}
+    We then get the characteristic polytope $P_{\chi}(\square_{2}) = \text{conv}\{\textbf{0}, v_{i} \mid i \in [9]\}$, which is the same as in example \ref{ex4gon}.
+\end{ex}
+
+\subsection{Face vector of the characteristic polytope}
+Based on the construction, we now analyze the face vector of the characteristic polytope of the $d$-cube. 
+
+Recall that we get the characteristic polytope $P_{\chi}(\square_d)$ from the simplicial complex $\Delta_d$. By tensoring the empty set with its link in $\Delta_d$ we get the vertices of $P_{\chi}(\square_d)$, and thus we have 
+\[
+f_0(P_{\chi}(\square_d)) = \binom{d}{0} 2^d = 2^d.
+\]
+Similarly, number of $i$-faces of $P_{\chi}(\square_d)$ can be expressed as 
+\[
+f_i(P_{\chi}(\square_d)) = \binom{d}{i} 2^{d-i},
+\]
+and we have the face vector $f = (1, 2^d, \ldots, \binom{d}{i}2^{d-i}, 2d, 1)$.
+
+\begin{remark}
+    Note that $\sum_{i = 0}^{d} f_i = 3^d$, which means that $P_{\chi}(\square_d)$ has $3^d +1$ vertices.
+\end{remark}
+
+\subsection{Volume and Ehrhart series}
+We have calculated the volume and Ehrhart series for $P_{\chi}(\square_2)$, which is
+\begin{align*}
+    \text{vol }P_{\chi}(\square_2) &= \frac{1}{2}, \\
+    \text{Ehr}_{P_{\chi}(\square_2)}(z) &= \frac{1 + 5z + 5z^2 + z^3}{(1 - z)^4}.
+\end{align*}
+When $d = 3$, dim$P_{\chi}(\square_3) = 2^3 = 8$. Again using Mathematica and Macaulay2 we get the results as follows
+\begin{align*}
+    \text{vol }P_{\chi}(\square_3) &= \frac{59}{2520}, \\
+    \text{Ehr}_{P_{\chi}(\square_3)}(z) &= \frac{1 + 19z + 127z^2 + 321z^3 + 329z^4 + 127z^5 + 19z^6 + z^7}{(1 - z)^8}.
+\end{align*}
+For $d > 3$, the computation is beyond our resource. But we notice the pattern again: the coefficients of the $h^*$-polynomial are unimodal/top-heavy. 
+\begin{conj}
+    The coefficients in the $h^*$-polynomial of the characteristic polytope of $d$-cube are unimodal/top-heavy.
+\end{conj}
+
+Another question is to find a formula for the volume. The characteristic polytope is similar to the \textit{independent set polytope} $I_M$ \citep{ABD10} of a matroid $M$, but it differs from $I_M$ as the latter has vertices in each slice of the hyperplane while the vertices of the former are only on certain slices.
+
+
+
+\begin{thebibliography}{99}
+\bibitem[ABD10]{ABD10} Ardila, Federico, Carolina Benedetti, and Jeffrey Doker. "Matroid polytopes and their volumes." Discrete \& Computational Geometry 43 (2010): 841-854.
+
+\bibitem[AHK18]{AHK18} Adiprasito, Karim, June Huh, and Eric Katz. "Hodge theory for combinatorial geometries." Annals of Mathematics 188.2 (2018): 381-452.
+
+\bibitem[Ehr62]{Ehr62} Ehrhart, Eugene. "Sur les polyèdres rationnels homothétiques à n dimensions." CR Acad. Sci. Paris 254 (1962): 616.
+
+\bibitem[Pos09]{Pos09} Postnikov, Alexander. "Permutohedra, associahedra, and beyond." International Mathematics Research Notices 2009.6 (2009): 1026-1106.
+
+\end{thebibliography}
+
+
+\end{document}
