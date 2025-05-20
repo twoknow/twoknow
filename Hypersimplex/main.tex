@@ -14,7 +14,7 @@
 \usetikzlibrary{decorations.pathreplacing, matrix}
 \usepackage{nicematrix}
 \usetikzlibrary{decorations.pathreplacing}
-\usepackage{xy}  % Consider loading xy-pic only if needed
+\usepackage[all]{xy} % Load xy package with 'all' option only once and before any package that might load it internally
 
 \usepackage{bm}
 \usepackage{dcolumn} %  This package is for aligning numbers in columns, useful for tables.
@@ -210,83 +210,6 @@ From the examples we see unimodality in the $h^*$-polynomial, and it is natural 
 
 \section{Characteristic Polytope of $d$-cube $\square_{d}$}
 
-\subsection{Constructing by tensoring}
-The face lattice in example \ref{ex4gon} is also the face lattice for 2-cube, and we could already see that it is hard to visualize the characteristic polytope. An algorithm to construct the characteristic polytope of $d$-cube is provided as follows.
-
-\begin{itemize}
-    \item Step 1: Start with the $(d-1)$-dim simplicial complex $\Delta$ over $[d]$. Associate each face $\tau \in \Delta$ with the corresponding standard basis vector $e_{\tau} \in \mathbb{R}^{2^d}$.
-    \item Step 2: For $\sigma_{1},\sigma_{2}, \rho \in \Delta$, define 
-    \begin{align*}
-        e_{[\sigma_{1},\sigma_{2}]} &:= \sum_{\sigma_{1} \subset \tau \subset \sigma_{2}}e_{\tau}, \\
-        e_{[\sigma_{1},\sigma_{2}]} \otimes e_{\rho} &:= e_{[\sigma_{1} \cup \rho, \sigma_{2} \cup \rho]}.
-    \end{align*}
-    Specifically, $e_{\emptyset} \otimes e_{\rho} = e_{\rho}$.
-    \item Step 3: Let $P_{\chi}(\square_{d}) := \text{conv}\{\textbf{0}, \displaystyle \bigsqcup_{\substack{\tau \in \Delta \\ \rho \in \text{lk}_{\tau}(\Delta)}} e_{[\emptyset, \tau]} \otimes e_{\rho} \}$, and we claim that:
-\end{itemize}
-
-\begin{lemma}
-    $P_{\chi}(\square_{d})$ is the characteristic polytope of the $d$-cube $\square_{d}$.
-\end{lemma}
-\begin{pf}
-    It is direct from the construction above.
-\end{pf}
-% $\Delta^{\tau} := \{\rho \in \Delta \mid \rho \subset \tau\}$.
-We illustrate the construction with the following example.
-\begin{ex}
-    Let $d = 2$, and we have the simplicial complex $\Delta = \{\emptyset, 1, 2, 12\}$. The corresponding basis vectors are:
-    $e_{\emptyset} = (1,0,0,0), 
-    e_{1} =(0,1,0,0), 
-    e_{2} =(0,0,1,0), 
-    e_{12} =(0,0,0,1)$.
-    By tensoring we have:
-    \begin{align*}
-        &e_{\emptyset} \otimes e_{\emptyset} = e_{\emptyset} = (1,0,0,0) := v_{1} \\
-        &e_{\emptyset} \otimes e_{1} = e_{1} = (0,1,0,0):= v_{2} \\ 
-        &e_{\emptyset} \otimes e_{2} = e_{2} = (0,0,1,0):= v_{3} \\ 
-        &e_{\emptyset} \otimes e_{12} = e_{12} = (0,0,0,1):= v_{4} \\ 
-        &e_{[\emptyset, 1]} \otimes e_{\emptyset} = e_{[\emptyset, 1]} = e_{\emptyset} + e_{1} = (1,1,0,0):= v_{5} \\
-        &e_{[\emptyset, 1]} \otimes e_{2} = e_{[2, 12]} = e_{2} + e_{12} = (0,0,1,1):= v_{6} \\
-        &e_{[\emptyset, 2]} \otimes e_{\emptyset} = e_{[\emptyset, 2]} = e_{\emptyset} + e_{2} = (1,0,1,0):= v_{7} \\
-        &e_{[\emptyset, 2]} \otimes e_{1} = e_{[1, 12]} = e_{1} + e_{12} = (0,1,0,1):= v_{8} \\
-        &e_{[\emptyset, 12]} \otimes e_{\emptyset} = e_{[\emptyset, 12]} = e_{\emptyset} + e_{1} + e_{2} + e_{12} = (1,1,1,1):= v_{9} \\
-    \end{align*}
-    We then get the characteristic polytope $P_{\chi}(\square_{2}) = \text{conv}\{\textbf{0}, v_{i} \mid i \in [9]\}$, which is the same as in example \ref{ex4gon}.
-\end{ex}
-
-\subsection{Face vector of the characteristic polytope}
-Based on the construction, we now analyze the face vector of the characteristic polytope of the $d$-cube. 
-
-Recall that we get the characteristic polytope $P_{\chi}(\square_d)$ from the simplicial complex $\Delta_d$. By tensoring the empty set with its link in $\Delta_d$ we get the vertices of $P_{\chi}(\square_d)$, and thus we have 
-\[
-f_0(P_{\chi}(\square_d)) = \binom{d}{0} 2^d = 2^d.
-\]
-Similarly, number of $i$-faces of $P_{\chi}(\square_d)$ can be expressed as 
-\[
-f_i(P_{\chi}(\square_d)) = \binom{d}{i} 2^{d-i},
-\]
-and we have the face vector $f = (1, 2^d, \ldots, \binom{d}{i}2^{d-i}, 2d, 1)$.
-
-\begin{remark}
-    Note that $\sum_{i = 0}^{d} f_i = 3^d$, which means that $P_{\chi}(\square_d)$ has $3^d +1$ vertices.
-\end{remark}
-
-\subsection{Volume and Ehrhart series}
-We have calculated the volume and Ehrhart series for $P_{\chi}(\square_2)$, which is
-\begin{align*}
-    \text{vol }P_{\chi}(\square_2) &= \frac{1}{2}, \\
-    \text{Ehr}_{P_{\chi}(\square_2)}(z) &= \frac{1 + 5z + 5z^2 + z^3}{(1 - z)^4}.
-\end{align*}
-When $d = 3$, dim$P_{\chi}(\square_3) = 2^3 = 8$. Again using Mathematica and Macaulay2 we get the results as follows
-\begin{align*}
-    \text{vol }P_{\chi}(\square_3) &= \frac{59}{2520}, \\
-    \text{Ehr}_{P_{\chi}(\square_3)}(z) &= \frac{1 + 19z + 127z^2 + 321z^3 + 329z^4 + 127z^5 + 19z^6 + z^7}{(1 - z)^8}.
-\end{align*}
-For $d > 3$, the computation is beyond our resource. But we notice the pattern again: the coefficients of the $h^*$-polynomial are unimodal/top-heavy. 
-\begin{conj}
-    The coefficients in the $h^*$-polynomial of the characteristic polytope of $d$-cube are unimodal/top-heavy.
-\end{conj}
-
-Another question is to find a formula for the volume. The characteristic polytope is similar to the \textit{independent set polytope} $I_M$ \citep{ABD10} of a matroid $M$, but it differs from $I_M$ as the latter has vertices in each slice of the hyperplane while the vertices of the former are only on certain slices.
 
 
 
