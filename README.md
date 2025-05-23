@@ -1,2 +1,1 @@
 - 👋 I’m M.Zhang, a math PhD student in Paris.
-- Contact info: mingzhi.86@gmail.com or WeChat微信: twoknow
