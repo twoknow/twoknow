@@ -1,2 +1,2 @@
 - 👋 I’m M.Zhang, a math PhD student in Paris.
-For mathematical research notes, please find in subfolders.
+- For mathematical research notes, please find in Branches other than the main branch.
