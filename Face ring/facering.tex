@@ -123,6 +123,10 @@ Given a ring $R$ and a two-sided ideal $I$, the \textbf{quotient ring} (or facto
 
 These operations are well-defined precisely because $I$ is a two-sided ideal. The quotient ring $R/I$ inherits many properties from $R$; for instance, if $R$ is commutative, then $R/I$ is commutative. The construction of quotient rings is a fundamental technique in algebra, allowing for the "simplification" of rings by treating all elements of an ideal $I$ as equivalent to zero. The properties of $R/I$ often reveal crucial information about the ideal $I$ itself.
 
+\paragraph{Fields and Integral Domains}
+A commutative ring $R$ with identity $1 \neq 0$ is a \textbf{field} if every non-zero element has a multiplicative inverse. Examples include $\mathbb{Q}$, $\mathbb{R}$, $\mathbb{C}$, and $\mathbb{Z}_p$ for prime $p$.
+An element $a \in R$ is a \textbf{zero divisor} if there exists a non-zero $b \in R$ such that $ab=0$. A commutative ring $R$ with identity $1 \neq 0$ is an \textbf{integral domain} if it has no zero divisors. Examples include $\mathbb{Z}$ and polynomial rings $k[x_1, \ldots, x_n]$ over a field $k$.
+
 \paragraph{Prime Ideals} 
 
 A proper ideal $P$ in a commutative ring $R$ is a \textbf{prime ideal} if for any $a,b \in R$, whenever $ab \in P$, then $a \in P$ or $b \in P$. This definition is a direct generalization of prime numbers in Z: an integer p>1 is prime if and only if the ideal pZ is a prime ideal in Z. For example, if $ab \in 3Z$, then 3 divides ab, implying 3 divides a or 3 divides b; thus $a \in 3Z$ or $b \in 3Z$.   
@@ -169,6 +173,9 @@ For a ring $R$, the following are equivalent to $R$ being left-Noetherian:
 \item Every non-empty set of left ideals of $R$, partially ordered by inclusion, has a \textbf{maximal element}.
 \end{enumerate}
 
+\paragraph{Primary Ideals}
+A proper ideal $Q$ in a commutative ring $R$ is a \textbf{primary ideal} if for any $a,b \in R$, whenever $ab \in Q$, then either $a \in Q$ or $b^n \in Q$ for some positive integer $n$. This generalizes the concept of prime power ideals in $\mathbb{Z}$ (e.g., $p^n\mathbb{Z}$).
+
 \paragraph{Key Properties of Noetherian Rings}
 The Noetherian property is preserved under several important algebraic constructions, making it a robust and widely applicable concept:
 \begin{itemize}
@@ -194,6 +201,9 @@ The \textbf{Krull dimension} of a commutative ring $R$, denoted $\dim(R)$, is de
 P_0 \subsetneq P_1 \subsetneq P_2 \subsetneq \cdots \subsetneq P_n
 \]
 where each $P_i$ is a prime ideal of $R$, and the length of this chain is $n$. The Krull dimension can be finite or infinite, depending on the ring.
+
+\paragraph{Height of a Prime Ideal}
+The \textbf{height} of a prime ideal $P$ in a commutative ring $R$, denoted $\mathrm{ht}(P)$, is the supremum of the lengths of all chains of prime ideals $P_0 \subsetneq P_1 \subsetneq \cdots \subsetneq P_n = P$ that end at $P$. The Krull dimension of a ring $R$ is then the supremum of the heights of all prime ideals in $R$.
 \paragraph{Properties}
 \begin{itemize}
 \item \textbf{Noetherian Rings:} For Noetherian rings, the Krull dimension is well-defined and finite. The dimension can be computed using the ascending chain condition on prime ideals.
@@ -213,9 +223,28 @@ where each $P_i$ is a prime ideal of $R$, and the length of this chain is $n$. T
 
 \section*{Part II: The Stanley-Reisner Ring}
 % 第二部分：Stanley-Reisner环
-\subsection{Stanley-Reisner Rings}
+
 The Stanley-Reisner ring is a fundamental construction in combinatorial commutative algebra, linking combinatorial properties of simplicial complexes to algebraic properties of rings. It plays a crucial role in the study of combinatorial invariants and has applications in algebraic geometry, topology, and combinatorics.
+
+\subsection{Simplicial Complexes}
+The combinatorial foundation of Stanley-Reisner theory is the concept of a simplicial complex.
+
 \paragraph{Definition}
+A \textbf{simplicial complex} $\Delta$ on a finite set of vertices $V = \{v_1, v_2, \ldots, v_n\}$ is a collection of subsets of $V$ such that:
+\begin{enumerate}
+    \item For each $v \in V$, $\{v\} \in \Delta$. (Every vertex is a face.)
+    \item If $F \in \Delta$ and $G \subseteq F$, then $G \in \Delta$. (Every subset of a face is also a face.)
+\end{enumerate}
+The elements of $\Delta$ are called \textbf{faces} or \textbf{simplices}. If a face $F$ has $k+1$ elements, it is called a $k$-dimensional face or $k$-simplex. The dimension of a face is one less than its cardinality. The dimension of a simplicial complex $\Delta$, denoted $\dim(\Delta)$, is the maximum dimension of its faces.
+
+\paragraph{Maximal Faces and Pure Complexes}
+A face $F \in \Delta$ is a \textbf{maximal face} (or \textbf{facet}) if it is not a proper subset of any other face in $\Delta$.
+A simplicial complex $\Delta$ is \textbf{pure} if all its maximal faces have the same dimension.
+
+\paragraph{Missing Faces}
+In the context of the Stanley-Reisner ideal, a subset $S \subseteq V$ is a \textbf{missing face} (or \textbf{non-face}) of $\Delta$ if $S \notin \Delta$. These missing faces are precisely what generate the Stanley-Reisner ideal.
+
+\subsection{Stanley-Reisner Rings}
 Given a simplicial complex $\Delta$ on the vertex set $[n] = \{1, 2, \ldots, n\}$, the \textbf{Stanley-Reisner ring} (or face ring) of $\Delta$, denoted $k[\Delta]$, is defined as follows:
 \begin{itemize}
 \item Let $k$ be a field. The \textbf{Stanley-Reisner ideal} $I_\Delta$ is generated by the monomials $x_S = x_{i_1} x_{i_2} \cdots x_{i_k}$, where $S = \{i_1, i_2, \ldots, i_k\}$ is a subset of $[n]$ that is not a face of $\Delta$ (i.e., $S$ is not contained in any simplex of $\Delta$).
@@ -234,11 +263,40 @@ The Stanley-Reisner ring $k[\Delta]$ has several important properties:
 H_{k[\Delta]}(t) = \sum_{d=0}^{\infty} \dim_k (k[\Delta]_d) t^d
 \]
 where $k[\Delta]_d$ is the degree $d$ component of the ring. The Hilbert series can be computed using combinatorial techniques and is closely related to the f-vector and h-vector of the simplicial complex.
+
+\paragraph{f-vector and h-vector}
+For a simplicial complex $\Delta$ of dimension $d-1$, let $f_i$ be the number of $i$-dimensional faces of $\Delta$ for $i=0, \ldots, d-1$. The sequence $(f_0, f_1, \ldots, f_{d-1})$ is called the \textbf{f-vector} of $\Delta$. The \textbf{f-polynomial} is $f(t) = \sum_{i=0}^{d-1} f_i t^i$.
+The \textbf{h-vector} $(h_0, h_1, \ldots, h_d)$ is related to the f-vector by the equation:
+\[
+\sum_{i=0}^d h_i t^{d-i} = \sum_{i=0}^d f_{i-1} (t-1)^{d-i}
+\]
+where $f_{-1}=1$ (representing the empty face). The h-vector is a fundamental invariant in combinatorial commutative algebra, often revealing deeper properties of the simplicial complex and its Stanley-Reisner ring.
+
 \item \textbf{Cohen-Macaulay Property:} The Stanley-Reisner ring is Cohen-Macaulay if and only if the simplicial complex $\Delta$ is pure (all maximal faces have the same dimension) and has no missing faces. This property is crucial for understanding the algebraic structure of the ring.
 \item \textbf{Reisner's Theorem:} This theorem states that the Stanley-Reisner ring $k[\Delta]$ is Cohen-Macaulay if and only if the simplicial complex $\Delta$ is pure and has no missing faces. This result connects the combinatorial properties of the complex to the algebraic properties of the ring.
+\item \textbf{Face Poset:} The \textbf{face poset} of a simplicial complex $\Delta$, denoted $\mathcal{F}(\Delta)$, is the set of all faces of $\Delta$ ordered by inclusion. This poset is a fundamental combinatorial object that encodes the entire structure of the simplicial complex.
+
 \item \textbf{Hochster's Formula:} This formula relates the Betti numbers of the Stanley-Reisner ring to the combinatorial structure of the simplicial complex. It provides a way to compute the Betti numbers using the face poset of $\Delta$.
+
+\paragraph{Betti Numbers}
+The \textbf{Betti numbers} $\beta_{i,j}(R)$ of a graded $k$-algebra $R$ measure the complexity of its minimal free resolution. Specifically, $\beta_{i,j}(R)$ is the number of generators of degree $j$ in the $i$-th free module of the minimal free resolution of $R$ as a module over a polynomial ring. They provide deep insights into the homological properties of the ring.
+
+\paragraph{Artinian Rings}
+A ring $R$ is called \textbf{Artinian} if it satisfies the descending chain condition (DCC) on its ideals. This means that for any sequence of ideals $I_1 \supseteq I_2 \supseteq I_3 \supseteq \cdots$, there exists an integer $N$ such that $I_N = I_{N+1} = I_{N+2} = \cdots$. For commutative rings, a ring is Artinian if and only if it is Noetherian and has Krull dimension zero.
+
 \item \textbf{Artinian Property:} The Stanley-Reisner ring is Artinian if and only if the simplicial complex $\Delta$ is finite and has no missing faces. This property is important for understanding the structure of the ring in terms of its minimal free resolution.
+
+\paragraph{Minimal Free Resolution}
+For a graded $k$-algebra $R$ (such as $k[\Delta]$) that is a quotient of a polynomial ring $S = k[x_1, \ldots, x_n]$, a \textbf{minimal free resolution} of $R$ as an $S$-module is an exact sequence of graded free $S$-modules:
+\[
+\cdots \to F_2 \to F_1 \to F_0 \to R \to 0
+\]
+where each $F_i = \bigoplus_j S(-j)^{\beta_{i,j}}$ and the maps are chosen such that the images are contained in the maximal ideal times the previous module. The minimal free resolution provides a fundamental way to understand the algebraic structure of $R$, and its Betti numbers $\beta_{i,j}$ are key invariants.
 \item \textbf{Lefschetz Properties:} The Stanley-Reisner ring satisfies various Lefschetz properties, which have implications for the unimodality and log-concavity of the h-vector. These properties are crucial for understanding the combinatorial structure of the simplicial complex.
+
+\paragraph{Unimodality and Log-concavity}
+A sequence of non-negative real numbers $(a_0, a_1, \ldots, a_d)$ is \textbf{unimodal} if there exists an index $k$ such that $a_0 \le a_1 \le \cdots \le a_k \ge a_{k+1} \ge \cdots \ge a_d$. It is \textbf{log-concave} if $a_i^2 \ge a_{i-1}a_{i+1}$ for all $i=1, \ldots, d-1$. Log-concavity implies unimodality. These properties are significant in combinatorics, often arising from underlying algebraic or geometric structures.
+
 \item \textbf{Partition Complex:} The partition complex, introduced by Adiprasito, provides a combinatorial framework for studying the homology of simplicial complexes and their Stanley-Reisner rings. It simplifies proofs of Reisner's theorem and Schenzel's formula.
 \end{itemize}
 \paragraph{Examples}
@@ -257,7 +315,18 @@ The journey from Stanley's pioneering work to the recent breakthroughs by Adipra
 \paragraph{Evolution of Techniques}
 \begin{itemize}
 \item \textbf{Stanley's Era (1970s-1990s):} This period established the foundational framework. Key tools included Stanley-Reisner rings, the Cohen-Macaulay property (via Reisner's theorem), Hochster's formula for Betti numbers, and the systematic use of Hilbert functions and h-vectors. The primary strategy was to translate combinatorial problems (like face counting or shellability) into algebraic questions about Stanley-Reisner rings and then leverage their homological and ring-theoretic properties. This approach successfully resolved the UBC for spheres.
+
+\paragraph{Upper Bound Conjecture (UBC)}
+The \textbf{Upper Bound Conjecture} (now a theorem by Stanley) states that among all simplicial $(d-1)$-spheres with $n$ vertices, the boundary complex of a cyclic polytope with $n$ vertices has the maximum number of faces of each dimension. This conjecture was a major open problem in combinatorial geometry.
+
+\paragraph{Shellability}
+A simplicial complex $\Delta$ is \textbf{shellable} if its facets (maximal faces) can be ordered $F_1, F_2, \ldots, F_m$ such that for each $j \in \{2, \ldots, m\}$, the intersection of $F_j$ with the union of the preceding facets $\bigcup_{i=1}^{j-1} F_i$ is a pure $(d-2)$-dimensional simplicial complex (where $d-1$ is the dimension of $F_j$). Shellability is a strong combinatorial property that implies Cohen-Macaulayness.
+
 \item \textbf{Adiprasito's Era (2010s-Present):} This era builds upon these foundations but introduces novel, often more direct, combinatorial-topological tools to establish deep algebraic properties (like Lefschetz theorems and Poincaré duality) for face rings and their Artinian reductions. These new methods sometimes circumvent the need for more heavyweight abstract algebraic machinery (like local cohomology in its full generality for certain proofs) or extend results to settings where traditional "positivity" arguments (e.g., from Kähler geometry) do not directly apply.
+
+\paragraph{Kähler Geometry and Local Cohomology}
+\textbf{Kähler geometry} is a branch of differential geometry that studies Kähler manifolds, which are complex manifolds equipped with a Riemannian metric and a symplectic form satisfying certain compatibility conditions. In algebraic geometry, the "positivity" arguments often refer to properties derived from the geometry of projective varieties, which are related to Kähler geometry.
+\textbf{Local cohomology} is an advanced tool in commutative algebra and algebraic geometry that measures the "singularities" of a module or ring with respect to an ideal. It provides a way to study the local properties of algebraic varieties.
 \begin{itemize}
 \item The introduction of the \textbf{partition complex} by Adiprasito (and Yashfe, in its exposition ) provides a more elementary and "surgical" way to relate the homology of a complex to the algebraic structure of its face ring, simplifying proofs of Reisner's theorem and Schenzel's formula.
 \item The development of \textbf{combinatorial Hodge theory}  and associated techniques like \textbf{biased Poincaré duality}  were instrumental in Adiprasito's resolution of the g-conjecture for simplicial spheres. These tools provide a combinatorial analogue of the Hodge-theoretic package (Hard Lefschetz, Hodge-Riemann relations) that exists for projective algebraic varieties.
@@ -277,12 +346,35 @@ Stanley-Reisner rings continue to be a central object of study in algebraic comb
 The success of Stanley-Reisner theory in resolving the UBC and, more recently, the g-conjecture, has spurred further research in several directions:
 \begin{itemize}
 \item \textbf{The g-Conjecture and Combinatorial Hodge Theory:} Adiprasito's proof of the g-conjecture for simplicial spheres , which characterizes the possible f-vectors (or h-vectors) of such spheres, is a monumental achievement. It relies on establishing Hard Lefschetz properties and Hodge-Riemann-like relations for Artinian reductions of Stanley-Reisner rings, using techniques from combinatorial Hodge theory.
+
+\paragraph{g-Conjecture}
+The \textbf{g-conjecture} (now a theorem by Adiprasito) provides a complete characterization of the possible h-vectors of simplicial spheres. It states that for a simplicial $(d-1)$-sphere, its h-vector $(h_0, h_1, \ldots, h_d)$ must satisfy $h_i = h_{d-i}$ (Dehn-Sommerville equations) and the sequence $(h_0, h_1-h_0, h_2-h_1, \ldots, h_{\lfloor d/2 \rfloor} - h_{\lfloor d/2 \rfloor - 1})$ must be an M-sequence (i.e., the h-vector of a Cohen-Macaulay complex).
+
+\paragraph{Hodge-Riemann Relations}
+The \textbf{Hodge-Riemann relations} are a set of inequalities that arise in classical Hodge theory for complex projective varieties. They provide deep structural information about the cohomology rings of these varieties. In combinatorial Hodge theory, analogous relations are established for combinatorial objects, providing powerful tools to prove properties like the g-conjecture.
 \item \textbf{Lefschetz Properties:} A significant area of research involves understanding when Stanley-Reisner rings (or their Artinian quotients) satisfy the Weak Lefschetz Property (WLP) or Hard Lefschetz Property (HLP). These properties have strong implications for the unimodality and log-concavity of h-vectors. Adiprasito's paper \textit{"Combinatorial Lefschetz theorems beyond positivity"}  is a key contribution, extending these ideas to settings lacking traditional geometric positivity.
+
+\paragraph{Weak and Hard Lefschetz Properties}
+Let $R$ be a graded $k$-algebra and $L$ be a linear form (an element of degree 1).
+The \textbf{Weak Lefschetz Property (WLP)} states that multiplication by $L$ induces a surjection $R_i \to R_{i+1}$ for all $i$ up to some degree, and an injection $R_i \to R_{i+1}$ for all $i$ from some degree. More commonly, it refers to the property that for a general linear form $L$, the multiplication map $\times L: (R/L^k R)_i \to (R/L^k R)_{i+1}$ has maximal rank for all $i, k$.
+The \textbf{Hard Lefschetz Property (HLP)} is a stronger condition, typically for Artinian Gorenstein algebras. It states that for a general linear form $L$, the multiplication map $\times L^{d-2i}: R_i \to R_{d-i}$ is an isomorphism for all $i \le d/2$, where $d$ is the dimension of the algebra. HLP implies WLP and has profound implications for the unimodality of h-vectors.
 \item \textbf{Applications of the Partition Complex:} The framework detailed in Adiprasito and Yashfe's "invitation" paper  is designed as a versatile toolkit. Its applications in simplifying proofs and generalizing results are still being explored.
 \item \textbf{Connections to Other Fields:} Commutative algebra, partly through tools developed in combinatorial contexts, finds applications in areas like string theory, coding theory, and even computational biology with neural networks.
 \item \textbf{Computational Aspects:} Software packages like Macaulay2  are indispensable for exploring examples, testing conjectures, and performing explicit computations with Stanley-Reisner rings, their Hilbert series, Betti numbers, and other invariants. This interplay between abstract theory and concrete computation drives progress in the field.
 \end{itemize}
-The field of combinatorial commutative algebra is characterized by the quest for deep algebraic properties (like Cohen-Macaulayness, Gorensteinness, Lefschetz properties) of combinatorially defined rings, as these properties invariably lead to strong combinatorial or topological consequences.   
+The field of combinatorial commutative algebra is characterized by the quest for deep algebraic properties (like Cohen-Macaulayness, Gorensteinness, Lefschetz properties) of combinatorially defined rings, as these properties invariably lead to strong combinatorial or topological consequences.
+
+\paragraph{Gorenstein Rings}
+A Noetherian local ring $(R, \mathfrak{m})$ is \textbf{Gorenstein} if its injective dimension as an $R$-module is finite. For a graded $k$-algebra $R$ (like $k[\Delta]$), $R$ is Gorenstein if its localization at the irrelevant maximal ideal is Gorenstein.
+Equivalently, a Cohen-Macaulay graded $k$-algebra $R$ is Gorenstein if its canonical module $\omega_R$ is isomorphic to $R(-a)$ for some integer $a$. In simpler terms, Gorenstein rings are Cohen-Macaulay rings with a symmetric minimal free resolution. This property is stronger than Cohen-Macaulayness and implies additional structural regularities, often related to Poincaré duality in topological contexts.
+
+\paragraph{Examples of Gorenstein Rings}
+\begin{itemize}
+    \item Fields and Dedekind domains (e.g., $\mathbb{Z}$) are Gorenstein.
+    \item Any regular local ring is Gorenstein.
+    \item For a simplicial complex $\Delta$, its Stanley-Reisner ring $k[\Delta]$ is Gorenstein if and only if $\Delta$ is a Cohen-Macaulay complex and its canonical module is isomorphic to a shifted copy of $k[\Delta]$. A well-known example is the Stanley-Reisner ring of the boundary complex of a simplex, which is a Gorenstein ring.
+    \item The quotient ring $k[x_1, \ldots, x_n]/\langle x_1^a, \ldots, x_n^a \rangle$ is Gorenstein.
+\end{itemize}
 
 %-------------------- 参考文献 --------------------
 \begin{thebibliography}{99}
