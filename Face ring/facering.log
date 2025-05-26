@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.8)  26 MAY 2025 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.8)  26 MAY 2025 15:36
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -674,46 +674,57 @@ Overfull \hbox (2.14291pt too wide) in paragraph at lines 181--183
  []
 
 
-Overfull \hbox (3.99179pt too wide) in paragraph at lines 189--190
-\T1/ppl/m/n/12 The jour-ney from Stan-ley's pi-o-neer-ing work to the re-cent break-throughs by Adipr-
- []
-
-
 
 [4]
-Overfull \hbox (1.24544pt too wide) in paragraph at lines 197--198
-\T1/ppl/m/n/12 Lef-schetz, Hodge-Riemann re-la-tions) that ex-ists for pro-jec-tive al-ge-braic
+Overfull \hbox (4.36623pt too wide) in paragraph at lines 199--200
+[]\T1/ppl/b/n/12 Noetherian Rings: \T1/ppl/m/n/12 For Noethe-rian rings, the Krull di-men-sion is well-defined
  []
 
 
 
 [5]
-Overfull \hbox (9.21144pt too wide) in paragraph at lines 207--208
+
+[6]
+
+[7]
+Overfull \hbox (3.99179pt too wide) in paragraph at lines 255--256
+\T1/ppl/m/n/12 The jour-ney from Stan-ley's pi-o-neer-ing work to the re-cent break-throughs by Adipr-
+ []
+
+
+Overfull \hbox (1.24544pt too wide) in paragraph at lines 263--264
+\T1/ppl/m/n/12 Lef-schetz, Hodge-Riemann re-la-tions) that ex-ists for pro-jec-tive al-ge-braic
+ []
+
+
+
+[8]
+Overfull \hbox (9.21144pt too wide) in paragraph at lines 273--274
 \T1/ppl/m/n/12 ar-eas, in-clud-ing \T1/ppl/b/n/12 topo-log-i-cal data anal-y-sis (TDA) \T1/ppl/m/n/12 through "Per-sis-tent Stanley-
  []
 
 
 
-[6]
+[9]
 
-[7] (facering.aux)
+[10] (facering.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20960 strings out of 469941
- 427087 string characters out of 5486266
- 827051 words of memory out of 5000000
+ 20967 strings out of 469941
+ 427127 string characters out of 5486266
+ 827053 words of memory out of 5000000
  47345 multiletter control sequences out of 15000+600000
- 656168 words of font info for 114 fonts, out of 8000000 for 9000
+ 658240 words of font info for 121 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,8n,107p,3261b,241s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eufm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eusm10.pfb><D:/MikTex/fonts/type1/public/mathpazo/fplmbb.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplr8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on facering.pdf (7 pages, 121984 bytes).
+ 102i,8n,107p,3261b,266s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/euex10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eufm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm7.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eusm10.pfb><D:/MikTex/fonts/type1/public/mathpazo/fplmbb.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplr8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on facering.pdf (10 pages, 139154 bytes).
 PDF statistics:
- 80 PDF objects out of 1000 (max. 8388607)
+ 99 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
