@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.8)  26 MAY 2025 15:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.8)  26 MAY 2025 15:24
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -587,21 +587,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 ) (D:\MikTex\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-04-14 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count365
-) (facering.aux
-
-facering.aux:11: Package natbib Error: Bibliography not compatible with author-year citations.
-(natbib)                Press <return> to continue in numerical citation style.
-
-See the natbib package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.11 ...mand\NAT@force@numbers{}\NAT@force@numbers
-                                                  
-Check the bibliography entries for non-compliant syntax,
-or select author-year BibTeX style, e.g. plainnat
-
-)
+) (facering.aux)
 \openout1 = `facering.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
@@ -657,17 +643,18 @@ LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 5
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
 Package xypdf Info: Line width: 0.48pt on input line 56.
-LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 85.
- (D:\MikTex\tex/latex/psnfss\ufplmbb.fd
-File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
-)
-Overfull \hbox (3.16179pt too wide) in paragraph at lines 100--102
-\T1/ppl/m/n/12 A sim-plex is the sim-plest gen-er-al-iza-tion of a tri-an-gle or tetra-he-dron to higher
+
+Overfull \hbox (4.95404pt too wide) in paragraph at lines 71--72
+\T1/ppl/m/n/12 der-stand-ing ba-sic al-ge-braic struc-tures such as rings, ide-als, quo-tient rings, Noethe-
  []
 
-LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 103.
+LaTeX Font Info:    Trying to load font information for TS1+ppl on input line 85.
 (D:\MikTex\tex/latex/psnfss\ts1ppl.fd
 File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
+)
+LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 106.
+ (D:\MikTex\tex/latex/psnfss\ufplmbb.fd
+File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
 
 [1
@@ -676,24 +663,57 @@ File: ts1ppl.fd 2001/06/04 font definitions for TS1/ppl.
 
 [2]
 
-[3] (facering.aux)
+[3]
+Overfull \hbox (11.52916pt too wide) in paragraph at lines 180--181
+[]\T1/ppl/b/n/12 Localizations: \T1/ppl/m/n/12 Ev-ery lo-cal-iza-tion of a com-mu-ta-tive Noethe-rian ring is Noethe-
+ []
+
+
+Overfull \hbox (2.14291pt too wide) in paragraph at lines 181--183
+\T1/ppl/m/n/12 Many al-go-rithms and struc-tural the-o-rems rely on this fi-nite gen-er-a-tion prop-
+ []
+
+
+Overfull \hbox (3.99179pt too wide) in paragraph at lines 189--190
+\T1/ppl/m/n/12 The jour-ney from Stan-ley's pi-o-neer-ing work to the re-cent break-throughs by Adipr-
+ []
+
+
+
+[4]
+Overfull \hbox (1.24544pt too wide) in paragraph at lines 197--198
+\T1/ppl/m/n/12 Lef-schetz, Hodge-Riemann re-la-tions) that ex-ists for pro-jec-tive al-ge-braic
+ []
+
+
+
+[5]
+Overfull \hbox (9.21144pt too wide) in paragraph at lines 207--208
+\T1/ppl/m/n/12 ar-eas, in-clud-ing \T1/ppl/b/n/12 topo-log-i-cal data anal-y-sis (TDA) \T1/ppl/m/n/12 through "Per-sis-tent Stanley-
+ []
+
+
+
+[6]
+
+[7] (facering.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20998 strings out of 469941
- 427632 string characters out of 5486266
- 824049 words of memory out of 5000000
- 47373 multiletter control sequences out of 15000+600000
- 666978 words of font info for 146 fonts, out of 8000000 for 9000
+ 20960 strings out of 469941
+ 427087 string characters out of 5486266
+ 827051 words of memory out of 5000000
+ 47345 multiletter control sequences out of 15000+600000
+ 656168 words of font info for 114 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,13n,107p,3261b,250s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/euex10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eufm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm7.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eusm10.pfb><D:/MikTex/fonts/type1/public/mathpazo/fplmbb.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplr8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on facering.pdf (3 pages, 118119 bytes).
+ 102i,8n,107p,3261b,241s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eufm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eusm10.pfb><D:/MikTex/fonts/type1/public/mathpazo/fplmbb.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplr8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on facering.pdf (7 pages, 121984 bytes).
 PDF statistics:
- 76 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

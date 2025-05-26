@@ -24,7 +24,7 @@
 \usepackage{youngtab}
 \usepackage{ytableau}
 \ytableausetup{mathmode, boxsize=0.9em}
-\usepackage[square]{natbib}
+\usepackage[numbers]{natbib}
 \usepackage{bibentry}
 \usepackage{cite}
 
@@ -57,7 +57,7 @@
 
 %-------------------- 标题与作者 --------------------
 \begin{center}
-    {\Large\bf Notes on Unimodality of Hypersimplex}
+    {\Large\bf Notes on Stanley-Reisner Ring}
 \end{center}
 \vskip 3mm
 \begin{center}
@@ -65,107 +65,159 @@
 \end{center}
 \vskip 3mm
 
-%-------------------- 1. 引言 --------------------
-\section{Introduction}
+\section*{Part I: Foundational Algebraic Concepts}
+% 第一部分：基础代数概念
 
-%---- 1.1 Hypersimplex ----
-\subsection{Hypersimplex}
-Fix a positive integer $n$, and let $[n]:= \{1, 2, \cdots , n\}$. To any subset $S \subseteq [n]$, we associate the indicator vector:
-\[
-\chi_{S} = (\chi_{S}(1), \chi_{S}(2), \ldots, \chi_{S}(n))
-\]
-where 
-\[
-\chi_{S}(i) = 
-\begin{cases} 
-1, & i \in S \\
-0, & i \notin S
-\end{cases}
-\]
-For $0 < k < n$, let $\binom{[n]}{k}$ be the family of all $k$-subsets of $[n]$. The \textit{hypersimplex} $\Delta_{k,n} \subseteq \mathbb{R}^n$ is the convex hull of the indicator vectors $\chi_I$ for $I \in \binom{[n]}{k}$. Equivalently,
-\[
-\Delta_{k,n} = \left\{ (x_1, \ldots, x_n) \mid 0 \leq x_i \leq 1,\, \sum_{i=1}^n x_i = k \right\}
-\]
+The study of Stanley-Reisner rings is deeply rooted in commutative algebra. Understanding basic algebraic structures such as rings, ideals, quotient rings, Noetherian rings, and Krull dimension is essential before exploring their combinatorial counterparts.
 
-%---- 1.2 Stanley's Triangulations ----
-\subsection{Stanley's Triangulations}
-Why is the set defined by a permutation
-\[
-\nabla_w = \{(y_1,\dots,y_{n-1})\in [0,1]^{n-1} \mid 0 < y_{w(1)} < \cdots < y_{w(n-1)} < 1\}
-\]
-a simplex?
+\subsection{Rings, Ideals, and Quotient Rings}
+% 子部分：环、理想与商环
 
-\paragraph{Step-by-Step Explanation}
+The algebraic landscape of this field is built upon the concept of a ring.
+
+\paragraph{Rings}
+% 段落：环
+A \textbf{ring} $R$ is a set equipped with two binary operations, typically called addition ($+$) and multiplication ($\cdot$), satisfying specific axioms. Specifically:
+
 \begin{enumerate}
-    \item \textbf{What is a simplex?} \\
-    A simplex is the simplest generalization of a triangle or tetrahedron to higher dimensions:
+  \item $(R,+)$ is an abelian group:
     \begin{itemize}
-        \item 1-simplex: line segment (2 vertices)
-        \item 2-simplex: triangle (3 vertices)
-        \item 3-simplex: tetrahedron (4 vertices)
-        \item In general, an $(n-1)$-simplex in $\mathbb{R}^{n-1}$ is the convex hull of $n$ affinely independent points.
+      \item Addition is associative: $(a+b)+c=a+(b+c)$ for all $a,b,c\in R$.
+      \item Addition is commutative: $a+b=b+a$ for all $a,b\in R$.
+      \item There exists an additive identity $0\in R$ such that $a+0=a$ for all $a\in R$.
+      \item For each $a\in R$, there exists an additive inverse $-a\in R$ such that $a+(-a)=0$.
     \end{itemize}
-    Formally,
-    \[
-    \text{conv}(v_0, \ldots, v_d) = \left\{ \sum_{i=0}^d \lambda_i v_i \mid \lambda_i \ge 0,\, \sum_{i=0}^d \lambda_i = 1 \right\}
-    \]
-    \item \textbf{Connecting our definition to a simplex.} \\
-    The set is defined by strict inequalities:
-    \[
-    0 < y_{w(1)} < \cdots < y_{w(n-1)} < 1
-    \]
-    The closure allows equality:
-    \[
-    0 \leq y_{w(1)} \leq \cdots \leq y_{w(n-1)} \leq 1
-    \]
-    \item \textbf{Identifying the vertices.} \\
-    The vertices are:
-    \[
-    (0,0,\dots,0),\quad e_{w(1)},\quad e_{w(1)}+e_{w(2)},\quad \dots,\quad (1,1,\dots,1)
-    \]
-    where $e_i$ is the $i$-th unit vector.
-    \item \textbf{Affine independence.} \\
-    Each vertex introduces a new coordinate direction, so they are affinely independent.
-    \item \textbf{Geometric intuition.} \\
-    The region is a "slice" of the cube, forming a staircase-like path, which is a simplex.
+  \item $(R,\cdot)$ is a monoid (though some definitions vary, rings in this context are generally assumed to have a multiplicative identity):
+    \begin{itemize}
+      \item Multiplication is associative: $(a\cdot b)\cdot c=a\cdot(b\cdot c)$ for all $a,b,c\in R$.
+      \item There exists a multiplicative identity $1\in R$ such that $a\cdot 1=1\cdot a=a$ for all $a\in R$.
+    \end{itemize}
+  \item Multiplication is distributive over addition:
+    \begin{itemize}
+      \item $a\cdot(b+c)=(a\cdot b)+(a\cdot c)$ (left distributivity) for all $a,b,c\in R$.
+      \item $(b+c)\cdot a=(b\cdot a)+(c\cdot a)$ (right distributivity) for all $a,b,c\in R$.
+    \end{itemize}
 \end{enumerate}
 
-\paragraph{Summary}
+A ring is \textbf{commutative} if $a\cdot b=b\cdot a$ for all $a,b\in R$. Polynomial rings over a field, such as $k[x_1,\ldots,x_n]$, are primary examples of commutative rings with identity and are central to Stanley-Reisner theory.
+
+\paragraph{Ideals}
+% 段落：理想
+An \textbf{ideal} $I$ of a ring $R$ is a special subset that generalizes concepts like "multiples of an integer $n$" in the ring of integers $\mathbb{Z}$, or "polynomials vanishing on a specific geometric set" in a polynomial ring. Formally, a non-empty subset $I\subseteq R$ is a \textbf{left ideal} if:
+
 \begin{enumerate}
-    \item The set identifies $n$ vertices at cube corners.
-    \item There are $n$ vertices, forming an $(n-1)$-simplex.
-    \item Vertices are affinely independent.
+  \item For all $a,b\in I$, $a-b\in I$ ($I$ is an additive subgroup).
+  \item For all $r\in R$ and $a\in I$, $ra\in I$ (absorption from the left).
 \end{enumerate}
-Thus, $\nabla_w$ is a simplex.
 
-%---- 1.3 Volume and Ehrhart series ----
-\subsection{Volume and Ehrhart series}
-We are mainly interested in the volume and Ehrhart series of the characteristic polytopes. For $n$-gons up to $5$-gon:
+A \textbf{right ideal} is defined analogously with $ar\in I$. A \textbf{two-sided ideal} (or simply an ideal, especially in commutative rings) is both a left and a right ideal. An ideal $I$ is \textbf{proper} if $I\neq R$. The zero ideal $\{0\}$ and $R$ itself are always ideals.
+
+\paragraph{Quotient Rings}
+% 段落：商环
+Given a ring $R$ and a two-sided ideal $I$, the \textbf{quotient ring} (or factor ring) $R/I$ is formed by the set of cosets $\{a+I\mid a\in R\}$. Addition and multiplication in $R/I$ are defined as:
+
 \begin{itemize}
-    \item 3-gon: 
-    \begin{align*}
-        \text{vol }P_{\chi}(Q_3) &= 1, \\
-        \text{Ehr}_{P_{\chi}(Q_3)}(z) &= \frac{1 + 4z + z^2}{(1 - z)^3}.
-    \end{align*}
-    \item 4-gon: 
-    \begin{align*}
-        \text{vol }P_{\chi}(Q_4) &= \frac{1}{2}, \\
-        \text{Ehr}_{P_{\chi}(Q_4)}(z) &= \frac{1 + 5z + 5z^2 + z^3}{(1 - z)^4}.
-    \end{align*}
-    \item 5-gon:
-    \begin{align*}
-        \text{vol }P_{\chi}(Q_5) &= \frac{5}{24}, \\
-        \text{Ehr}_{P_{\chi}(Q_5)}(z) &= \frac{1 + 6z + 11z^2 + 6z^3 + z^4}{(1 - z)^5}.
-    \end{align*}
+  \item $(a+I)+(b+I)=(a+b)+I$
+  \item $(a+I)\cdot(b+I)=(a\cdot b)+I$
 \end{itemize}
 
-From these examples, we see unimodality in the $h^*$-polynomial. Thus, we conjecture:
-\begin{conj}
-    The coefficients $h^*_{i}$ in the $h^*$-polynomial of the Ehrhart series of characteristic polytopes of $n$-gon form a unimodal sequence.
-\end{conj}
+These operations are well-defined precisely because $I$ is a two-sided ideal. The quotient ring $R/I$ inherits many properties from $R$; for instance, if $R$ is commutative, then $R/I$ is commutative. The construction of quotient rings is a fundamental technique in algebra, allowing for the "simplification" of rings by treating all elements of an ideal $I$ as equivalent to zero. The properties of $R/I$ often reveal crucial information about the ideal $I$ itself.
 
-%-------------------- 2. Characteristic Polytope of $d$-cube --------------------
-\section{Characteristic Polytope of $d$-cube $\square_{d}$}
+\paragraph{Prime Ideals} 
+
+A proper ideal $P$ in a commutative ring $R$ is a \textbf{prime ideal} if for any $a,b \in R$, whenever $ab \in P$, then $a \in P$ or $b \in P$. This definition is a direct generalization of prime numbers in Z: an integer p>1 is prime if and only if the ideal pZ is a prime ideal in Z. For example, if $ab \in 3Z$, then 3 divides ab, implying 3 divides a or 3 divides b; thus $a \in 3Z$ or $b \in 3Z$.   
+
+\paragraph{Maximal Ideals} 
+
+A proper ideal $M$ in a ring $R$ is a \textbf{maximal ideal} if there is no other proper ideal $J$ of $R$ such that $M \subsetneq J \subsetneq R$. In other words, $M$ is a maximal element in the set of proper ideals of $R$, partially ordered by inclusion.   
+
+Several important theorems connect these types of ideals with the structure of their corresponding quotient rings, especially in commutative rings with identity:
+\begin{itemize}
+\item An ideal $I$ in a commutative ring $R$ with identity is \textbf{maximal} if and only if the quotient ring $R/I$ is a \textbf{field}. A field is a commutative ring where every non-zero element has a multiplicative inverse. The intuition is that if $M$ is maximal, $R/M$ cannot be "simplified" further without collapsing to the zero ring, a characteristic property of fields.
+\item An ideal $P$ in a commutative ring $R$ with identity is \textbf{prime} if and only if the quotient ring $R/P$ is an \textbf{integral domain}. An integral domain is a commutative ring with identity that has no zero divisors (i.e., if $xy=0$, then $x=0$ or $y=0$). The condition $ab \in P \implies a \in P$ or $b \in P$ translates directly to $(a+P)(b+P)=0+P \implies a+P=0+P$ or $b+P=0+P$ in $R/P$.
+\item As a direct consequence, every \textbf{maximal ideal} in a commutative ring with identity is also a \textbf{prime ideal}, because every field is an integral domain.
+\end{itemize}   
+
+\paragraph{Examples}
+\begin{itemize}
+\item In $\mathbb{Z}$, ideals are of the form $n\mathbb{Z}$. $p\mathbb{Z}$ is maximal (and prime) if $p$ is a prime number, because $\mathbb{Z}/p\mathbb{Z}$ is a field. $n\mathbb{Z}$ is prime if and only if $n$ is prime (or $n=0$). If $n$ is composite (e.g., $n=4$), $n\mathbb{Z}$ is not prime (e.g., $2\cdot 2=4 \in 4\mathbb{Z}$ but $2 \notin 4\mathbb{Z}$), and $\mathbb{Z}/n\mathbb{Z}$ is not an integral domain (e.g., in $\mathbb{Z}/4\mathbb{Z}$,  
+4Z), and Z/nZ is not an integral domain (e.g., in Z/4Z).
+\item In the polynomial ring $K[x,y]$ over a field $K$, the ideal $\langle y \rangle$ (polynomials with $y$ as a factor) is prime because $K[x,y]/\langle y \rangle \cong K[x]$, which is an integral domain. However, $\langle y \rangle$ is not maximal because $K[x]$ is not a field. For instance, $\langle y \rangle \subsetneq \langle x,y \rangle \subsetneq K[x,y]$, and $K[x,y]/\langle x,y \rangle \cong K$, which is a field, so $\langle x,y \rangle$ is maximal.
+\end{itemize}   
+
+\subsection{Noetherian Rings}
+
+Noetherian rings, named after Emmy Noether, are a class of rings with particularly well-behaved ideal structures. They are fundamental in commutative algebra and algebraic geometry.
+
+
+\paragraph{Definition} 
+A ring $R$ is \textbf{left-Noetherian} if it satisfies the \textbf{ascending chain condition (ACC)} on its left ideals. This means that for any sequence of left ideals
+\[
+I_1 \subseteq I_2 \subseteq I_3 \subseteq \cdots
+\]
+there exists an integer $N$ such that
+\[
+I_N = I_{N+1} = I_{N+2} = \cdots
+\]
+i.e., the chain stabilizes. Similarly, a ring is \textbf{right-Noetherian} if it satisfies ACC on right ideals. A ring is simply called \textbf{Noetherian} if it is both left- and right-Noetherian. For commutative rings, the distinction between left, right, and two-sided ACC is not necessary, as they are all equivalent.
+
+
+\paragraph{Equivalent Conditions} 
+For a ring $R$, the following are equivalent to $R$ being left-Noetherian:
+\begin{enumerate}
+\item Every left ideal $I$ in $R$ is \textbf{finitely generated}. This means there exist elements $a_1, \ldots, a_k \in I$ such that $I = Ra_1 + \cdots + Ra_k = \{r_1a_1 + \cdots + r_ka_k \mid r_j \in R\}$. The ability to describe any ideal with a finite set of generators is a powerful property.
+\item Every non-empty set of left ideals of $R$, partially ordered by inclusion, has a \textbf{maximal element}.
+\end{enumerate}
+
+\paragraph{Key Properties of Noetherian Rings}
+The Noetherian property is preserved under several important algebraic constructions, making it a robust and widely applicable concept:
+\begin{itemize}
+\item \textbf{Hilbert's Basis Theorem:} If $R$ is a (left/right) Noetherian ring, then the polynomial ring $R[X]$ is also (left/right) Noetherian.\\
+By induction, $R[X_1, x_2, \cdots, x_n]$ is Noetherian. Also, the power series ring $R[[X]]$ is Noetherian if $R$ is.\\
+This theorem is of paramount importance because it implies that polynomial rings over fields (which are Noetherian) are themselves Noetherian.\\
+Stanley-Reisner rings are quotients of such polynomial rings.
+\item \textbf{Quotients:} If $R$ is a Noetherian ring and $I$ is a two-sided ideal, then the quotient ring $R/I$ is also Noetherian.
+\item \textbf{Localizations:} Every localization of a commutative Noetherian ring is Noetherian.
+\item \textbf{Finite Generation:} In a commutative Noetherian ring, every ideal being finitely generated implies a certain ``tameness.''\\
+Many algorithms and structural theorems rely on this finite generation property.
+\item \textbf{Minimal Prime Ideals:} A commutative Noetherian ring has only a finite number of minimal prime ideals.
+\item \textbf{Primary Decomposition:} In a commutative Noetherian ring, every ideal has a primary decomposition, meaning it can be written as a finite intersection of primary ideals. This is analogous to prime factorization of integers.
+\end{itemize}
+The significance of Noetherian rings lies in their "finite" nature concerning ideals. This finiteness condition ensures that many algebraic procedures terminate and that ideals have a manageable structure. Most rings encountered in algebraic geometry, including Stanley-Reisner rings (as they are quotients of polynomial rings over fields), are Noetherian.   
+
+\subsection{Summary}
+The journey from Stanley's pioneering work to the recent breakthroughs by Adiprasito reveals a significant evolution in techniques while underscoring the enduring importance of core concepts.
+
+\paragraph{Evolution of Techniques}
+\begin{itemize}
+\item \textbf{Stanley's Era (1970s-1990s):} This period established the foundational framework. Key tools included Stanley-Reisner rings, the Cohen-Macaulay property (via Reisner's theorem), Hochster's formula for Betti numbers, and the systematic use of Hilbert functions and h-vectors. The primary strategy was to translate combinatorial problems (like face counting or shellability) into algebraic questions about Stanley-Reisner rings and then leverage their homological and ring-theoretic properties. This approach successfully resolved the UBC for spheres.
+\item \textbf{Adiprasito's Era (2010s-Present):} This era builds upon these foundations but introduces novel, often more direct, combinatorial-topological tools to establish deep algebraic properties (like Lefschetz theorems and Poincaré duality) for face rings and their Artinian reductions. These new methods sometimes circumvent the need for more heavyweight abstract algebraic machinery (like local cohomology in its full generality for certain proofs) or extend results to settings where traditional "positivity" arguments (e.g., from Kähler geometry) do not directly apply.
+\begin{itemize}
+\item The introduction of the \textbf{partition complex} by Adiprasito (and Yashfe, in its exposition ) provides a more elementary and "surgical" way to relate the homology of a complex to the algebraic structure of its face ring, simplifying proofs of Reisner's theorem and Schenzel's formula.
+\item The development of \textbf{combinatorial Hodge theory}  and associated techniques like \textbf{biased Poincaré duality}  were instrumental in Adiprasito's resolution of the g-conjecture for simplicial spheres. These tools provide a combinatorial analogue of the Hodge-theoretic package (Hard Lefschetz, Hodge-Riemann relations) that exists for projective algebraic varieties.
+\end{itemize}
+\end{itemize}
+This evolution demonstrates a continuous refinement of tools, with newer methods often providing more direct or generalizable arguments. The core idea of leveraging algebraic structure remains, but the specific techniques to uncover and exploit this structure have advanced.   
+
+\paragraph{The Enduring Impact of Stanley-Reisner Rings}
+Stanley-Reisner rings continue to be a central object of study in algebraic combinatorics and combinatorial commutative algebra.
+\begin{itemize}
+\item They serve as a fundamental \textbf{bridge} enabling the transfer of techniques and insights between commutative algebra, algebraic geometry, topology, and combinatorics.
+\item \textbf{Hochster's formula} remains a vital tool for computing Betti numbers and understanding the minimal free resolutions of these rings, connecting algebraic data to the homology of subcomplexes.
+\item The theory has broadened to encompass the study of various related ideals, such as \textbf{edge ideals of graphs} (which are Stanley-Reisner ideals of 1-dimensional simplicial complexes), and has found applications in diverse areas, including \textbf{topological data analysis (TDA)} through "Persistent Stanley-Reisner Theory".
+\end{itemize}   
+
+\paragraph{Broader Implications and Current Research Directions}
+The success of Stanley-Reisner theory in resolving the UBC and, more recently, the g-conjecture, has spurred further research in several directions:
+\begin{itemize}
+\item \textbf{The g-Conjecture and Combinatorial Hodge Theory:} Adiprasito's proof of the g-conjecture for simplicial spheres , which characterizes the possible f-vectors (or h-vectors) of such spheres, is a monumental achievement. It relies on establishing Hard Lefschetz properties and Hodge-Riemann-like relations for Artinian reductions of Stanley-Reisner rings, using techniques from combinatorial Hodge theory.
+\item \textbf{Lefschetz Properties:} A significant area of research involves understanding when Stanley-Reisner rings (or their Artinian quotients) satisfy the Weak Lefschetz Property (WLP) or Hard Lefschetz Property (HLP). These properties have strong implications for the unimodality and log-concavity of h-vectors. Adiprasito's paper \textit{"Combinatorial Lefschetz theorems beyond positivity"}  is a key contribution, extending these ideas to settings lacking traditional geometric positivity.
+\item \textbf{Applications of the Partition Complex:} The framework detailed in Adiprasito and Yashfe's "invitation" paper  is designed as a versatile toolkit. Its applications in simplifying proofs and generalizing results are still being explored.
+\item \textbf{Connections to Other Fields:} Commutative algebra, partly through tools developed in combinatorial contexts, finds applications in areas like string theory, coding theory, and even computational biology with neural networks.
+\item \textbf{Computational Aspects:} Software packages like Macaulay2  are indispensable for exploring examples, testing conjectures, and performing explicit computations with Stanley-Reisner rings, their Hilbert series, Betti numbers, and other invariants. This interplay between abstract theory and concrete computation drives progress in the field.
+\end{itemize}
+The field of combinatorial commutative algebra is characterized by the quest for deep algebraic properties (like Cohen-Macaulayness, Gorensteinness, Lefschetz properties) of combinatorially defined rings, as these properties invariably lead to strong combinatorial or topological consequences.   
+\section*{Part II: The Stanley-Reisner Ring}
 
 %-------------------- 参考文献 --------------------
 \begin{thebibliography}{99}
