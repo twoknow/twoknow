@@ -1,0 +1,178 @@
+%-------------------- 导言区 --------------------
+\documentclass[12pt]{article}
+
+% 基础字体与数学包
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{eulervm}
+\usepackage{amsmath, amsthm, amssymb}
+\allowdisplaybreaks[4]
+
+% 图形与表格
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{decorations.pathreplacing, matrix}
+\usepackage{nicematrix}
+\usepackage[all]{xy}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{dcolumn}
+
+% 其他常用包
+\usepackage{bm}
+\usepackage[mathscr]{eucal}
+\usepackage{youngtab}
+\usepackage{ytableau}
+\ytableausetup{mathmode, boxsize=0.9em}
+\usepackage[square]{natbib}
+\usepackage{bibentry}
+\usepackage{cite}
+
+% 页面设置
+\setlength{\evensidemargin}{0.3cm}
+\setlength{\oddsidemargin}{0.3cm}
+\parskip=6pt
+\frenchspacing
+\textwidth=15cm
+\textheight=23cm
+\parindent=16pt
+\topmargin=-1.2cm
+
+%-------------------- 定理环境 --------------------
+\theoremstyle{definition}
+\newtheorem{thm}{Theorem}[subsection]
+\newtheorem{defi}[thm]{Definition}
+\newtheorem{lemma}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem*{pf}{Proof}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{remark}[thm]{Remark}
+\newtheorem{prob}{Problem}[subsection]
+\numberwithin{equation}{subsection}
+
+%-------------------- 正文开始 --------------------
+\begin{document}
+
+%-------------------- 标题与作者 --------------------
+\begin{center}
+    {\Large\bf Notes on Unimodality of Hypersimplex}
+\end{center}
+\vskip 3mm
+\begin{center}
+    Mingzhi Zhang
+\end{center}
+\vskip 3mm
+
+%-------------------- 1. 引言 --------------------
+\section{Introduction}
+
+%---- 1.1 Hypersimplex ----
+\subsection{Hypersimplex}
+Fix a positive integer $n$, and let $[n]:= \{1, 2, \cdots , n\}$. To any subset $S \subseteq [n]$, we associate the indicator vector:
+\[
+\chi_{S} = (\chi_{S}(1), \chi_{S}(2), \ldots, \chi_{S}(n))
+\]
+where 
+\[
+\chi_{S}(i) = 
+\begin{cases} 
+1, & i \in S \\
+0, & i \notin S
+\end{cases}
+\]
+For $0 < k < n$, let $\binom{[n]}{k}$ be the family of all $k$-subsets of $[n]$. The \textit{hypersimplex} $\Delta_{k,n} \subseteq \mathbb{R}^n$ is the convex hull of the indicator vectors $\chi_I$ for $I \in \binom{[n]}{k}$. Equivalently,
+\[
+\Delta_{k,n} = \left\{ (x_1, \ldots, x_n) \mid 0 \leq x_i \leq 1,\, \sum_{i=1}^n x_i = k \right\}
+\]
+
+%---- 1.2 Stanley's Triangulations ----
+\subsection{Stanley's Triangulations}
+Why is the set defined by a permutation
+\[
+\nabla_w = \{(y_1,\dots,y_{n-1})\in [0,1]^{n-1} \mid 0 < y_{w(1)} < \cdots < y_{w(n-1)} < 1\}
+\]
+a simplex?
+
+\paragraph{Step-by-Step Explanation}
+\begin{enumerate}
+    \item \textbf{What is a simplex?} \\
+    A simplex is the simplest generalization of a triangle or tetrahedron to higher dimensions:
+    \begin{itemize}
+        \item 1-simplex: line segment (2 vertices)
+        \item 2-simplex: triangle (3 vertices)
+        \item 3-simplex: tetrahedron (4 vertices)
+        \item In general, an $(n-1)$-simplex in $\mathbb{R}^{n-1}$ is the convex hull of $n$ affinely independent points.
+    \end{itemize}
+    Formally,
+    \[
+    \text{conv}(v_0, \ldots, v_d) = \left\{ \sum_{i=0}^d \lambda_i v_i \mid \lambda_i \ge 0,\, \sum_{i=0}^d \lambda_i = 1 \right\}
+    \]
+    \item \textbf{Connecting our definition to a simplex.} \\
+    The set is defined by strict inequalities:
+    \[
+    0 < y_{w(1)} < \cdots < y_{w(n-1)} < 1
+    \]
+    The closure allows equality:
+    \[
+    0 \leq y_{w(1)} \leq \cdots \leq y_{w(n-1)} \leq 1
+    \]
+    \item \textbf{Identifying the vertices.} \\
+    The vertices are:
+    \[
+    (0,0,\dots,0),\quad e_{w(1)},\quad e_{w(1)}+e_{w(2)},\quad \dots,\quad (1,1,\dots,1)
+    \]
+    where $e_i$ is the $i$-th unit vector.
+    \item \textbf{Affine independence.} \\
+    Each vertex introduces a new coordinate direction, so they are affinely independent.
+    \item \textbf{Geometric intuition.} \\
+    The region is a "slice" of the cube, forming a staircase-like path, which is a simplex.
+\end{enumerate}
+
+\paragraph{Summary}
+\begin{enumerate}
+    \item The set identifies $n$ vertices at cube corners.
+    \item There are $n$ vertices, forming an $(n-1)$-simplex.
+    \item Vertices are affinely independent.
+\end{enumerate}
+Thus, $\nabla_w$ is a simplex.
+
+%---- 1.3 Volume and Ehrhart series ----
+\subsection{Volume and Ehrhart series}
+We are mainly interested in the volume and Ehrhart series of the characteristic polytopes. For $n$-gons up to $5$-gon:
+\begin{itemize}
+    \item 3-gon: 
+    \begin{align*}
+        \text{vol }P_{\chi}(Q_3) &= 1, \\
+        \text{Ehr}_{P_{\chi}(Q_3)}(z) &= \frac{1 + 4z + z^2}{(1 - z)^3}.
+    \end{align*}
+    \item 4-gon: 
+    \begin{align*}
+        \text{vol }P_{\chi}(Q_4) &= \frac{1}{2}, \\
+        \text{Ehr}_{P_{\chi}(Q_4)}(z) &= \frac{1 + 5z + 5z^2 + z^3}{(1 - z)^4}.
+    \end{align*}
+    \item 5-gon:
+    \begin{align*}
+        \text{vol }P_{\chi}(Q_5) &= \frac{5}{24}, \\
+        \text{Ehr}_{P_{\chi}(Q_5)}(z) &= \frac{1 + 6z + 11z^2 + 6z^3 + z^4}{(1 - z)^5}.
+    \end{align*}
+\end{itemize}
+
+From these examples, we see unimodality in the $h^*$-polynomial. Thus, we conjecture:
+\begin{conj}
+    The coefficients $h^*_{i}$ in the $h^*$-polynomial of the Ehrhart series of characteristic polytopes of $n$-gon form a unimodal sequence.
+\end{conj}
+
+%-------------------- 2. Characteristic Polytope of $d$-cube --------------------
+\section{Characteristic Polytope of $d$-cube $\square_{d}$}
+
+%-------------------- 参考文献 --------------------
+\begin{thebibliography}{99}
+    \bibitem[ABD10]{ABD10} Ardila, Federico, Carolina Benedetti, and Jeffrey Doker. "Matroid polytopes and their volumes." Discrete \& Computational Geometry 43 (2010): 841-854.
+    \bibitem[AHK18]{AHK18} Adiprasito, Karim, June Huh, and Eric Katz. "Hodge theory for combinatorial geometries." Annals of Mathematics 188.2 (2018): 381-452.
+    \bibitem[Ehr62]{Ehr62} Ehrhart, Eugene. "Sur les polyèdres rationnels homothétiques à n dimensions." CR Acad. Sci. Paris 254 (1962): 616.
+    \bibitem[Pos09]{Pos09} Postnikov, Alexander. "Permutohedra, associahedra, and beyond." International Mathematics Research Notices 2009.6 (2009): 1026-1106.
+\end{thebibliography}
+
+\end{document}
