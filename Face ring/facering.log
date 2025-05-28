@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.8)  26 MAY 2025 17:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (MiKTeX 25.4) (preloaded format=pdflatex 2025.5.8)  28 MAY 2025 14:57
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -664,80 +664,99 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 [2]
 
 [3]
-Overfull \hbox (11.52916pt too wide) in paragraph at lines 187--188
-[]\T1/ppl/b/n/12 Localizations: \T1/ppl/m/n/12 Ev-ery lo-cal-iza-tion of a com-mu-ta-tive Noethe-rian ring is Noethe-
- []
-
-
-Overfull \hbox (2.14291pt too wide) in paragraph at lines 188--190
-\T1/ppl/m/n/12 Many al-go-rithms and struc-tural the-o-rems rely on this fi-nite gen-er-a-tion prop-
- []
-
-
 
 [4]
-Overfull \hbox (4.36623pt too wide) in paragraph at lines 209--210
-[]\T1/ppl/b/n/12 Noetherian Rings: \T1/ppl/m/n/12 For Noethe-rian rings, the Krull di-men-sion is well-defined
+Overfull \hbox (2.12442pt too wide) in paragraph at lines 197--198
+[]\T1/ppl/m/n/12 Combining these im-pli-ca-tions, we con-clude that the three con-di-tions are equiv-
+ []
+
+
+Overfull \hbox (10.52802pt too wide) in paragraph at lines 206--209
+\T1/ppl/m/n/12 state-ment gen-er-al-izes this to any Noethe-rian ring $\U/zeur/m/n/12 R$\T1/ppl/m/n/12 , as-sert-ing that $\U/zeur/m/n/12 R\U/zeus/m/n/12 Û\U/zeur/m/n/12 x[]\T1/ppl/m/n/12 , [] , \U/zeur/m/n/12 x[]\U/zeus/m/n/12 Ý$
+ []
+
+
+Overfull \hbox (3.41962pt too wide) in paragraph at lines 206--209
+\T1/ppl/m/n/12 selves Noethe-rian, pro-vid-ing a fi-nite ba-sis for all their ide-als. Stanley-Reisner
  []
 
 
 
 [5]
+Overfull \hbox (11.52916pt too wide) in paragraph at lines 230--231
+[]\T1/ppl/b/n/12 Localizations: \T1/ppl/m/n/12 Ev-ery lo-cal-iza-tion of a com-mu-ta-tive Noethe-rian ring is Noethe-
+ []
+
+
+Overfull \hbox (2.14291pt too wide) in paragraph at lines 231--233
+\T1/ppl/m/n/12 Many al-go-rithms and struc-tural the-o-rems rely on this fi-nite gen-er-a-tion prop-
+ []
+
+
 
 [6]
+Overfull \hbox (4.36623pt too wide) in paragraph at lines 252--253
+[]\T1/ppl/b/n/12 Noetherian Rings: \T1/ppl/m/n/12 For Noethe-rian rings, the Krull di-men-sion is well-defined
+ []
+
+
 
 [7]
-Overfull \hbox (16.02354pt too wide) in paragraph at lines 268--270
+
+[8]
+Overfull \hbox (16.02354pt too wide) in paragraph at lines 311--313
 \U/zeus/m/n/12 ¨\U/zeur/m/n/12 f[]\T1/ppl/m/n/12 , \U/zeur/m/n/12 f[]\T1/ppl/m/n/12 , [] , \U/zeur/m/n/12 f[]\U/zeus/m/n/12 ©$ \T1/ppl/m/n/12 is called the \T1/ppl/b/n/12 f-vector \T1/ppl/m/n/12 of $\U/zeur/m/n/12 ^^A$\T1/ppl/m/n/12 . The \T1/ppl/b/n/12 f-polynomial \T1/ppl/m/n/12 is $\U/zeur/m/n/12 f\U/zeus/m/n/12 ¨\U/zeur/m/n/12 t\U/zeus/m/n/12 © ½ [][] \U/zeur/m/n/12 f[]t[]$\T1/ppl/m/n/12 .
  []
 
 
 
-[8]
-
 [9]
-Overfull \hbox (3.99179pt too wide) in paragraph at lines 313--314
+
+[10]
+Overfull \hbox (3.99179pt too wide) in paragraph at lines 356--357
 \T1/ppl/m/n/12 The jour-ney from Stan-ley's pi-o-neer-ing work to the re-cent break-throughs by Adipr-
  []
 
 
 
-[10]
-Overfull \hbox (1.24544pt too wide) in paragraph at lines 332--333
+[11]
+
+[12]
+Overfull \hbox (1.24544pt too wide) in paragraph at lines 375--376
 \T1/ppl/m/n/12 Lef-schetz, Hodge-Riemann re-la-tions) that ex-ists for pro-jec-tive al-ge-braic
  []
 
 
-
-[11]
-Overfull \hbox (9.21144pt too wide) in paragraph at lines 342--343
+Overfull \hbox (9.21144pt too wide) in paragraph at lines 385--386
 \T1/ppl/m/n/12 ar-eas, in-clud-ing \T1/ppl/b/n/12 topo-log-i-cal data anal-y-sis (TDA) \T1/ppl/m/n/12 through "Per-sis-tent Stanley-
  []
 
 
 
-[12]
-
 [13]
 
-[14] (facering.aux)
+[14]
+
+[15]
+
+[16] (facering.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 20971 strings out of 469941
- 427166 string characters out of 5486266
+ 20973 strings out of 469941
+ 427220 string characters out of 5486266
  827053 words of memory out of 5000000
- 47348 multiletter control sequences out of 15000+600000
+ 47350 multiletter control sequences out of 15000+600000
  658476 words of font info for 122 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 102i,8n,107p,3261b,241s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,8n,107p,3261b,316s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <D:/MikTex/fonts/type1/public/amsfonts/cm/cmex10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/euex10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eufm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm10.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eurm7.pfb><D:/MikTex/fonts/type1/public/amsfonts/euler/eusm10.pfb><D:/MikTex/fonts/type1/public/mathpazo/fplmbb.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/MikTex/fonts/type1/urw/palatino/uplb8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplr8a.pfb><D:/MikTex/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on facering.pdf (14 pages, 174923 bytes).
+Output written on facering.pdf (16 pages, 183585 bytes).
 PDF statistics:
- 122 PDF objects out of 1000 (max. 8388607)
+ 128 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 
