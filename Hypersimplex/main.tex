@@ -1,14 +1,14 @@
-%-------------------- 导言区 --------------------
+%-------------------- Preamble --------------------
 \documentclass[12pt]{article}
 
-% 基础字体与数学包
+% Basic fonts and math packages
 \usepackage[T1]{fontenc}
 \usepackage{mathpazo}
 \usepackage{eulervm}
 \usepackage{amsmath, amsthm, amssymb}
 \allowdisplaybreaks[4]
 
-% 图形与表格
+% Graphics和tables
 \usepackage{tikz}
 \usepackage{tikz-3dplot}
 \usetikzlibrary{decorations.pathreplacing, matrix}
@@ -18,15 +18,14 @@
 \usepackage{float}
 \usepackage{dcolumn}
 
-% 其他常用包
+% Other useful packages
 \usepackage{bm}
 \usepackage[mathscr]{eucal}
 \usepackage{youngtab}
 \usepackage{ytableau}
 \ytableausetup{mathmode, boxsize=0.9em}
-\usepackage[square]{natbib}
-\usepackage{bibentry}
-\usepackage{cite}
+\usepackage{hyperref}
+\usepackage{cleveref}
 
 % 页面设置
 \setlength{\evensidemargin}{0.3cm}
@@ -84,20 +83,67 @@ where
 \]
 For $0 < k < n$, let $\binom{[n]}{k}$ be the family of all $k$-subsets of $[n]$. The \textit{hypersimplex} $\Delta_{k,n} \subseteq \mathbb{R}^n$ is the convex hull of the indicator vectors $\chi_I$ for $I \in \binom{[n]}{k}$. Equivalently,
 \[
-\Delta_{k,n} = \left\{ (x_1, \ldots, x_n) \mid 0 \leq x_i \leq 1,\, \sum_{i=1}^n x_i = k \right\}
+\Delta_{k,n} = \left\{ (x_1, \ldots, x_n) \in \mathbb{R}^n \mid 0 \leq x_i \leq 1,\, \sum_{i=1}^n x_i = k \right\}
 \]
 
 %---- 1.2 Stanley's Triangulations ----
 \subsection{Stanley's Triangulations}
-Why is the set defined by a permutation
+\subsubsection{The Original Triangulation}
+Let's break down the original idea that Stanley used to bridge the triangulations of polytopes $R_{n,k}$ and $S_{n,k}$ whose definitions will be given below.
+
+\textbf{Definition of $R_{n,k}$ and $S_{n,k}$.}
+\begin{itemize}
+    \item $R_{n,k}$ is the \textit{regular} hypersimplex, defined as:
+    \[
+    R_{n,k} = \left\{ (x_1, \ldots, x_n) \in [0,1]^n \mid 0 \leq x_i \leq 1,\, \sum_{i=1}^n x_i = k \right\}
+    \]
+    \item $S_{n,k}$ is the hypersimplex with $k$ rises (with the convention that $y_0 = 0$):
+    \[
+    S_{n,k} = \left\{ (y_1, \ldots, y_n) \in [0,1]^n \mid y_0 = 0,\ \left|\left\{ i : y_{i-1} < y_i \right\}\right| = k \right\}
+    \]
+\end{itemize}
+
+Clearly, $R_{n,k}$ is the hypersimplex $\Delta_{k,n}$ we defined above, while $S_{n,k}$ is a polytope where we count the number of rises in the coordinates. Both have the same volume which is equal to $\frac{A_{n,k}}{n!}$, where $A_{n,k}$ is the Eulerian number counting the number of permutations of $[n]$ with $k$ rises.
+
+Before we proceed to the triangulation, let's clarify with an example what the polytope $S_{n,k}$ looks like. For $n=3$ and $k=2$, interior of the polytope $S_{3,2}$ consists of points $(y_1, y_2, y_3)$ such that:
+\[
+\begin{array}{l}
+0 = y_0 < y_1 < y_3 < y_2 < 1,\quad 0 = y_0 < y_3 < y_1 < y_2 < 1, \\
+0 = y_0 < y_2 < y_1 < y_3 < 1,\quad 0 = y_0 < y_2 < y_3 < y_1 < 1.
+\end{array}
+\]
+What we get is actually a triangulation of the polytope $S_{3,2}$. It is natural to index each of these simplices by the permutation of $[3]$ that gives the order of the coordinates, i.e., the first one corresponds to the identity permutation $(1,2,3)$, the second one corresponds to the permutation $(3,1,2)$, and so on. We will come back to this idea later in Lam and Postnikov's reformulation of the triangulation.
+
+
+\subsubsection{The Volume-Preserving Map}
+The question Stanley tried to answer is whether there is a map from $S_{n,k}$ to $R_{n,k}$ that preserves the volume. The answer is yes, and the map is given by:
+\[
+\begin{aligned}
+    \phi: \quad & S_{n,k} \longrightarrow R_{n,k} \\
+    & (y_1, \ldots, y_n) \longmapsto (x_1, \ldots, x_n)
+\end{aligned}
+\]
+where
+\[
+x_i =
+\begin{cases}
+y_{i-1} - y_i, & y_i < y_{i-1} \\
+1 + y_{i-1} - y_i, & y_i > y_{i-1}.
+\end{cases}
+\]
+This map is piecewise linear, and we can see from the map that the $x_i$ coordinates record the rises (ascents) or falls (descents) of the $y_i$ coordinates. By two basic facts in permutation theory: (1) the number of rises in a permutation (with the convention that the first element is always a rise) plus the number of its falls is always $n$, and (2) the number of rises in a permutation equals the number of falls of its reverse, we can infer that the coordinates in the polytope $S_{n,k}$ have $n - 1 - (n - k) = k-1$ descents.
+
+\subsubsection{Lam and Postnikov's Reformulation}
+
+Lam and Postnikov~\cite{LP07} reformulated the triangulation of $S_{n,k}$ in terms of permutations. Consider the polytopes 
 \[
 \nabla_w = \{(y_1,\dots,y_{n-1})\in [0,1]^{n-1} \mid 0 < y_{w(1)} < \cdots < y_{w(n-1)} < 1\}
 \]
-a simplex?
+where $w$ is a permutation of $[n-1]$. The question is: Is $\nabla_w$ a simplex?
 
 \paragraph{Step-by-Step Explanation}
 \begin{enumerate}
-    \item \textbf{What is a simplex?} \\
+    \item \textbf{What is a simplex?} 
     A simplex is the simplest generalization of a triangle or tetrahedron to higher dimensions:
     \begin{itemize}
         \item 1-simplex: line segment (2 vertices)
@@ -140,39 +186,20 @@ Thus, $\nabla_w$ is a simplex.
 
 %---- 1.3 Volume and Ehrhart series ----
 \subsection{Volume and Ehrhart series}
-We are mainly interested in the volume and Ehrhart series of the characteristic polytopes. For $n$-gons up to $5$-gon:
-\begin{itemize}
-    \item 3-gon: 
-    \begin{align*}
-        \text{vol }P_{\chi}(Q_3) &= 1, \\
-        \text{Ehr}_{P_{\chi}(Q_3)}(z) &= \frac{1 + 4z + z^2}{(1 - z)^3}.
-    \end{align*}
-    \item 4-gon: 
-    \begin{align*}
-        \text{vol }P_{\chi}(Q_4) &= \frac{1}{2}, \\
-        \text{Ehr}_{P_{\chi}(Q_4)}(z) &= \frac{1 + 5z + 5z^2 + z^3}{(1 - z)^4}.
-    \end{align*}
-    \item 5-gon:
-    \begin{align*}
-        \text{vol }P_{\chi}(Q_5) &= \frac{5}{24}, \\
-        \text{Ehr}_{P_{\chi}(Q_5)}(z) &= \frac{1 + 6z + 11z^2 + 6z^3 + z^4}{(1 - z)^5}.
-    \end{align*}
-\end{itemize}
+The volume of the hypersimplex $\Delta_{k,n}$ is given by the Eulerian number $A_{n-1,k-1}$ divided by $(n-1)!$. The Ehrhart series of $\Delta_{k,n}$ is given by:
+\[
+\text{Ehr}(\Delta_{k,n}, t) = \frac{\sum_{j=0}^{k-1} A_{n,j} t^j}{(1-t)^n}
+\]
+where $A_{n,j}$ are the Eulerian numbers.
 
-From these examples, we see unimodality in the $h^*$-polynomial. Thus, we conjecture:
-\begin{conj}
-    The coefficients $h^*_{i}$ in the $h^*$-polynomial of the Ehrhart series of characteristic polytopes of $n$-gon form a unimodal sequence.
-\end{conj}
+%-------------------- References --------------------
 
-%-------------------- 2. Characteristic Polytope of $d$-cube --------------------
-\section{Characteristic Polytope of $d$-cube $\square_{d}$}
 
-%-------------------- 参考文献 --------------------
-\begin{thebibliography}{99}
-    \bibitem[ABD10]{ABD10} Ardila, Federico, Carolina Benedetti, and Jeffrey Doker. "Matroid polytopes and their volumes." Discrete \& Computational Geometry 43 (2010): 841-854.
-    \bibitem[AHK18]{AHK18} Adiprasito, Karim, June Huh, and Eric Katz. "Hodge theory for combinatorial geometries." Annals of Mathematics 188.2 (2018): 381-452.
-    \bibitem[Ehr62]{Ehr62} Ehrhart, Eugene. "Sur les polyèdres rationnels homothétiques à n dimensions." CR Acad. Sci. Paris 254 (1962): 616.
-    \bibitem[Pos09]{Pos09} Postnikov, Alexander. "Permutohedra, associahedra, and beyond." International Mathematics Research Notices 2009.6 (2009): 1026-1106.
+\begin{thebibliography}{1}
+
+\bibitem{LP07}
+T. Lam and A. Postnikov, "Alcoved polytopes I," Discrete and Computational Geometry, vol. 38, no. 3, pp. 453--478, 2007.
+
 \end{thebibliography}
 
 \end{document}
