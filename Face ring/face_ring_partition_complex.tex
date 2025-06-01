@@ -1,18 +1,16 @@
 \documentclass[12pt]{article}
 
+% 添加 UTF-8 支持，并注册 U+2010 为普通连字符
+% \usepackage[utf8]{inputenc} % Removed as per plan
+% \DeclareUnicodeCharacter{2010}{-} % Removed as per plan
+
 % Font setup
 \usepackage[T1]{fontenc}
-\usepackage{mathpazo}  % Palatino-like font (similar to Garamond)
+\usepackage{mathpazo}  % Palatino-like font
 \usepackage{eulervm}   % Better matching math font
 
 % Math packages (consolidated)
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
-\usepackage{amsfonts}
-\usepackage{amscd}
-\usepackage{mathrsfs}
-\usepackage{bm}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,amscd,mathrsfs,bm}
 \usepackage[mathscr]{eucal}
 \allowdisplaybreaks[4]
 
@@ -20,7 +18,8 @@
 \usepackage{graphicx}
 \usepackage{color}
 \usepackage{float}
-\usepackage{epstopdf}
+% 如果你不需要处理 EPS 格式，可注释掉下面此行
+%\usepackage[pdftex]{epstopdf}
 
 % Tables
 \usepackage{dcolumn}
@@ -31,7 +30,7 @@
 \usetikzlibrary{decorations.pathreplacing, matrix}
 
 % Diagrams
-\usepackage[all]{xy}  % Only included once now
+\usepackage[all]{xy}
 
 % Special symbols
 \usepackage{eurosym}
@@ -50,11 +49,11 @@
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
-    citecolor=red,
-    backref=page
+    citecolor=red
+    % 移除了 backref 选项
 }
 
-
+% 页面排版设置
 \setlength{\evensidemargin}{0.3cm}
 \setlength{\oddsidemargin}{1.5cm}
 \parskip=6pt
@@ -198,14 +197,13 @@
 % -------------------------------------------------------------
 % doc begins
 \begin{document}
+\sloppy  % 放宽排版，若 Overfull 警告依然较高，可考虑局部调整
+
 \setcounter{section}{-1}
 
 \begin{center}
 {\Large\bf 
-Notes-From Face Ring to Partition Complex
-%and 
-%Combinatorial Classes for \\[10pt]
-%Restrictions of a Hyperplane Arrangement
+Notes -- From Face Ring to Partition Complex
 }\\ [7pt]
 \end{center}
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.5.15)  1 JUN 2025 18:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.5.15)  1 JUN 2025 18:27
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -192,49 +192,10 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \float@box=\box55
 \@float@everytoks=\toks31
 \@floatcapt=\box56
-)
-(D:\MikTex\tex/latex/epstopdf-pkg\epstopdf.sty
-Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
-
-(D:\MikTex\tex/generic/infwarerr\infwarerr.sty
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
-)
-(D:\MikTex\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-
-(D:\MikTex\tex/generic/kvdefinekeys\kvdefinekeys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-))
-(D:\MikTex\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-
-(D:\MikTex\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
-)
-(D:\MikTex\tex/latex/kvsetkeys\kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
-))
-(D:\MikTex\tex/generic/pdftexcmds\pdftexcmds.sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(D:\MikTex\tex/generic/iftex\iftex.sty
-Package: iftex 2024/12/12 v1.0g TeX engine tests
-)
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
-)
-(D:\MikTex\tex/latex/epstopdf-pkg\epstopdf-base.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-
-
-Package epstopdf Warning: Drivers other than `pdftex' and `luatex' are not supp
-orted.
-
-)) (D:\MikTex\tex/latex/tools\dcolumn.sty
+) (D:\MikTex\tex/latex/tools\dcolumn.sty
 Package: dcolumn 2023/07/08 v1.06 decimal alignment package (DPC)
- (D:\MikTex\tex/latex/tools\array.sty
+
+(D:\MikTex\tex/latex/tools\array.sty
 Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \col@sep=\dimen161
 \ar@mcellbox=\box57
@@ -243,7 +204,8 @@ Package: array 2024/10/17 v2.6g Tabular extension package (FMi)
 \extratabsurround=\skip57
 \backup@length=\skip58
 \ar@cellbox=\box58
-)) (D:\MikTex\tex/latex/nicematrix\nicematrix.sty
+))
+(D:\MikTex\tex/latex/nicematrix\nicematrix.sty
 (D:\MikTex\tex/latex/pgf/basiclayer\pgfcore.sty
 (D:\MikTex\tex/latex/pgf/systemlayer\pgfsys.sty
 (D:\MikTex\tex/latex/pgf/utilities\pgfrcs.sty
@@ -673,11 +635,13 @@ utility macros; pictures: \xy, positions,
 kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded) (D:\MikTex\tex/generic/iftex\ifpdf.sty
 Package: ifpdf 2019/10/25 v3.4 ifpdf legacy package. Use iftex instead.
-)
-Package: xy 2013/10/06 Xy-pic version 3.8.9
 
-(D:\MikTex\tex/generic/xypic\xyall.tex  Xy-pic option: All features v.3.8
-(D:\MikTex\tex/generic/xypic\xycurve.tex
+(D:\MikTex\tex/generic/iftex\iftex.sty
+Package: iftex 2024/12/12 v1.0g TeX engine tests
+))
+Package: xy 2013/10/06 Xy-pic version 3.8.9
+ (D:\MikTex\tex/generic/xypic\xyall.tex  Xy-pic option: All features v.3.8 (D:\
+MikTex\tex/generic/xypic\xycurve.tex
  Xy-pic option: Curve and Spline extension v.3.12 curve,
 \crv@cnt@=\count351
 \crvpts@=\toks49
@@ -759,9 +723,29 @@ Package: cite 2015/02/27  v 5.5
 (D:\MikTex\tex/latex/hyperref\hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
 
+(D:\MikTex\tex/latex/kvsetkeys\kvsetkeys.sty
+Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+)
+(D:\MikTex\tex/generic/kvdefinekeys\kvdefinekeys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
 (D:\MikTex\tex/generic/pdfescape\pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+
+(D:\MikTex\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2023-12-04 v1.26 LaTeX kernel commands for general use (HO)
 )
+(D:\MikTex\tex/generic/pdftexcmds\pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(D:\MikTex\tex/generic/infwarerr\infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode not found.
+))
 (D:\MikTex\tex/latex/hycolor\hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
@@ -773,7 +757,10 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 )
 (D:\MikTex\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
+
+(D:\MikTex\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
 \c@section@level=\count359
 )
 (D:\MikTex\tex/latex/etoolbox\etoolbox.sty
@@ -866,20 +853,16 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip60
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 55.
-
-
-Package hyperref Warning: Option `backref' has already been used,
-(hyperref)                setting the option has no effect on input line 55.
-
+Package hyperref Info: Option `colorlinks' set `true' on input line 54.
 \c@thm=\count373
 \c@prob=\count374
 \@indexfile=\write5
 \openout5 = `face_ring_partition_complex.idx'.
 
+
 Writing index file face_ring_partition_complex.idx
-LaTeX Font Info:    Trying to load font information for T1+ppl on input line 20
-0.
+LaTeX Font Info:    Trying to load font information for T1+ppl on input line 19
+9.
 (D:\MikTex\tex/latex/psnfss\t1ppl.fd
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
@@ -889,76 +872,73 @@ File: l3backend-xetex.def 2025-04-14 L3 backend support: XeTeX
 \g__pdfannot_backend_int=\count376
 \g__pdfannot_backend_link_int=\count377
 )
-No file face_ring_partition_complex.aux.
+(face_ring_partition_complex.aux)
 \openout1 = `face_ring_partition_complex.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 200.
-LaTeX Font Info:    ... okay on input line 200.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 199.
+LaTeX Font Info:    ... okay on input line 199.
 \c__nicematrix_shift_Ldots_last_row_dim=\dimen367
 \c__nicematrix_shift_exterior_Vdots_dim=\dimen368
 \c__nicematrix_innersep_middle_dim=\dimen369
-Package hyperref Info: Link coloring ON on input line 200.
+Package hyperref Info: Link coloring ON on input line 199.
+ (face_ring_partition_complex.out)
+(face_ring_partition_complex.out)
 \@outlinefile=\write6
 \openout6 = `face_ring_partition_complex.out'.
 
-
-Package hyperref Warning: Rerun to get /PageLabels entry.
-
-LaTeX Font Info:    Trying to load font information for U+zeur on input line 23
-1.
-(D:\MikTex\tex/latex/eulervm\uzeur.fd
+LaTeX Font Info:    Trying to load font information for U+zeur on input line 22
+9.
+ (D:\MikTex\tex/latex/eulervm\uzeur.fd
 File: uzeur.fd 2005/01/11 v4.0 (WaS)
 )
-LaTeX Font Info:    Trying to load font information for U+zeus on input line 23
-1.
- (D:\MikTex\tex/latex/eulervm\uzeus.fd
+LaTeX Font Info:    Trying to load font information for U+zeus on input line 22
+9.
+
+(D:\MikTex\tex/latex/eulervm\uzeus.fd
 File: uzeus.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for U+zeuex on input line 2
-31.
-
-(D:\MikTex\tex/latex/eulervm\uzeuex.fd
+29.
+ (D:\MikTex\tex/latex/eulervm\uzeuex.fd
 File: uzeuex.fd 2005/01/11 v4.0 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 
-231.
- (D:\MikTex\tex/latex/psnfss\ot1zplm.fd
+229.
+
+(D:\MikTex\tex/latex/psnfss\ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 23
-1.
-(D:\MikTex\tex/latex/jknappen\ursfs.fd
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 22
+9.
+ (D:\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-Overfull \hbox (36.21643pt too wide) in paragraph at lines 255--256
+Underfull \hbox (badness 5345) in paragraph at lines 253--254
 []\T1/ppl/m/n/12 Identify $\U/zeur/m/n/12 I$ \T1/ppl/m/n/12 with the mono-mial 
 $[] \U/zeur/m/n/12 x[]$ \T1/ppl/m/n/12 or its char-ac-ter-is-tic vec-tor $\U/ze
-ur/m/n/12 v[] \U/zeus/m/n/12 ½ ¨\U/zeur/m/n/12 ^^N[]\U/zeus/m/n/12 ¨\T1/ppl/m/n
-/12 1\U/zeus/m/n/12 ©\T1/ppl/m/n/12 , \U/zeur/m/n/12 ^^N[]\U/zeus/m/n/12 ¨\T1/p
-pl/m/n/12 2\U/zeus/m/n/12 ©\T1/ppl/m/n/12 , [] , \U/zeur/m/n/12 ^^N[]\U/zeus/m/
-n/12 ¨\U/zeur/m/n/12 n\U/zeus/m/n/12 ©©$\T1/ppl/m/n/12 . 
+ur/m/n/12 v[] \U/zeus/m/n/12 ½
  []
 
 LaTeX Font Info:    Trying to load font information for U+fplmbb on input line 
-275.
+273.
 (D:\MikTex\tex/latex/psnfss\ufplmbb.fd
 File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 )
@@ -978,25 +958,15 @@ Missing character: There is no ‐ in font pplr8t!
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-04-14>
  ***********
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `face_ring_partition_complex.out' has chan
-ged.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `face_ring_partition_complex.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  9B7AC1FEE1900B0E56496281C0637274;2054.
+Package rerunfilecheck Info: File `face_ring_partition_complex.out' has not cha
+nged.
+(rerunfilecheck)             Checksum: 9B7AC1FEE1900B0E56496281C0637274;2054.
  ) 
 Here is how much of TeX's memory you used:
- 26256 strings out of 405057
- 500047 string characters out of 5506823
- 898725 words of memory out of 5000000
- 52464 multiletter control sequences out of 15000+600000
+ 26189 strings out of 405057
+ 498450 string characters out of 5506823
+ 900137 words of memory out of 5000000
+ 52399 multiletter control sequences out of 15000+600000
  649799 words of font info for 95 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  81i,13n,80p,585b,675s stack positions out of 10000i,1000n,20000p,200000b,200000s
