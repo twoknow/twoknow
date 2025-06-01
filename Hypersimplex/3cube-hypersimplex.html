@@ -1,0 +1,46 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><title>3-Cube Simplex Selector</title>
+    <style>html,body{margin:0;padding:0;overflow:hidden;font-family:sans-serif}#ui{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border-radius:8px;padding:6px 10px;box-shadow:0 2px 6px #0003}select{font-size:14px;margin-left:6px}#info{margin-top:4px;font-size:13px}</style>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script></head><body>
+    <div id="ui"><label>Select simplex:</label><select id="sel"></select><div id="info">None selected.</div></div>
+    
+    <script>
+    /* ── data ───────────────────────────── */
+    const v=[[[0,0,0],[0,0,1],[0,1,1],[1,1,1]],[[0,0,0],[0,0,1],[1,0,1],[1,1,1]],[[0,0,0],[0,1,0],[1,1,0],[1,1,1]],[[0,0,0],[1,0,0],[1,1,0],[1,1,1]]];
+    const label=['0 < y₁ < y₃ < y₂ < 1','0 < y₃ < y₁ < y₂ < 1','0 < y₂ < y₁ < y₃ < 1','0 < y₂ < y₃ < y₁ < 1'];
+    const col=[[255,60,60],[60,120,255],[60,210,60],[255,170,60]];
+    let sel=-1,L=220,pick=false;
+    
+    /* ── p5 set-up ─────────────────────── */
+    function setup(){
+      createCanvas(windowWidth,windowHeight,WEBGL);noStroke();
+      const s=document.getElementById('sel'),info=document.getElementById('info');
+      s.add(new Option('None',-1));label.forEach((t,i)=>s.add(new Option(t,i)));
+      s.onchange=e=>{sel=int(e.target.value);info.textContent=sel==-1?'None selected.':label[sel]};
+    }
+    function windowResized(){resizeCanvas(windowWidth,windowHeight);}
+    
+    /* ── draw loop ─────────────────────── */
+    function draw(){
+      background(250);orbitControl();ambientLight(150);directionalLight(255,255,255,.5,1,0);
+      push();translate(-L/2,-L/2,-L/2);
+      for(let i=0;i<v.length;i++){let c=sel==i?[...col[i],220]:[160,160,160,90];fill(...c);stroke(90);strokeWeight(sel==i?2:.5);tet(v[i]);}
+      stroke(80);noFill();cubeWire();pop();
+      if(pick){picker();pick=false;}
+    }
+    
+    /* ── helpers ───────────────────────── */
+    function tet(a){const f=[[0,1,2],[0,1,3],[0,2,3],[1,2,3]];beginShape(TRIANGLES);for(const q of f)for(const k of q){const p=a[k];vertex(p[0]*L,p[1]*L,p[2]*L);}endShape();}
+    function cubeWire(){const e=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]],l=[[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]];beginShape(LINES);for(const [a,b] of l){vertex(...e[a].map(x=>x*L));vertex(...e[b].map(x=>x*L));}endShape();}
+    function mousePressed(){if(mouseX<160&&mouseY>height-100)return;pick=true;}
+    function picker(){
+      const pg=createGraphics(width,height,WEBGL);pg.pixelDensity(1);pg.noStroke();
+      const c=_renderer._curCamera;pg.camera(c.eyeX,c.eyeY,c.eyeZ,c.centerX,c.centerY,c.centerZ,c.upX,c.upY,c.upZ);pg.perspective(c.fov,c.aspect,c.near,c.far);
+      pg.push();pg.translate(-L/2,-L/2,-L/2);
+      for(let i=0;i<v.length;i++){pg.fill((i+1)*50,0,0);tetPG(pg,v[i]);}pg.pop();pg.loadPixels();
+      const idx=4*(floor(mouseX)+floor(mouseY)*pg.width),r=pg.pixels[idx];
+      const s=document.getElementById('sel'),info=document.getElementById('info');
+      if(r>=50){sel=r/50-1;s.value=sel;info.textContent=label[sel];}else{sel=-1;s.value=-1;info.textContent='None selected.';}pg.remove();
+    }
+    function tetPG(g,a){const f=[[0,1,2],[0,1,3],[0,2,3],[1,2,3]];g.beginShape(TRIANGLES);for(const q of f)for(const k of q){const p=a[k];g.vertex(p[0]*L,p[1]*L,p[2]*L);}g.endShape();}
+    </script></body></html>
+    
