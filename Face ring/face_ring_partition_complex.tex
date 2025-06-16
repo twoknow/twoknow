@@ -374,7 +374,22 @@ For a family $\mathcal{F}$ of subsets of $[n]$, we define the \textbf{down-close
 \end{center}
 
 \subsection{Euler characteristic}
+In combinatorial topology, the \textbf{Euler characteristic} is a topological invariant, a number that describes a topological space's structure regardless of how it is bent or stretched. For a finite simplicial complex $K$, the Euler characteristic $\chi(K)$ is defined as the alternating sum of the number of faces of each dimension:
+\[
+\chi(K) = f_0 - f_1 + f_2 - f_3 + \cdots + (-1)^d f_d,
+\]
+where $f_i$ is the number of $i$-dimensional faces in $K$, and $d$ is the highest dimension of a face in $K$.
 
+\begin{ex}
+\begin{enumerate}
+    \item For a single point, $f_0 = 1$, $f_i = 0$ for $i > 0$. So $\chi(\text{point}) = 1$.
+    \item For a line segment, $f_0 = 2$ (endpoints), $f_1 = 1$ (the segment itself). So $\chi(\text{segment}) = 2 - 1 = 1$.
+    \item For a circle (a 1-dimensional complex, e.g., a triangle's boundary), $f_0 = 3$, $f_1 = 3$. So $\chi(\text{circle}) = 3 - 3 = 0$.
+    \item For the boundary of a tetrahedron (a sphere-like surface), $f_0 = 4$ (vertices), $f_1 = 6$ (edges), $f_2 = 4$ (triangular faces). So $\chi(\text{sphere}) = 4 - 6 + 4 = 2$.
+\end{enumerate}
+\end{ex}
+
+The Euler characteristic is a fundamental invariant that connects combinatorial properties (number of faces) with topological properties of the space. It plays a crucial role in various theorems, such as Euler's formula for polyhedra ($V-E+F=2$) and the Gauss-Bonnet theorem in differential geometry. In the context of graded structures like the Boolean lattice, the Euler characteristic can often be related to properties of their generating functions or rank vectors.
 
 \section{Stanley-Reisner Ring}
 \subsection{Simplicial complex}
