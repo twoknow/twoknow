@@ -23,9 +23,9 @@
 \usepackage{graphicx} % For including images
 
 \usepackage{times} % This package is deprecated. Consider using a different font package if needed.
-\usepackage{epstopdf} % For including EPS images (usually not needed with pdflatex)
+\usepackage[pdftex]{epstopdf} % 为 epstopdf 指定 pdftex 驱动程序
 
-\usepackage[square]{natbib} % Enables Author-Year citation style
+\usepackage[square,numbers]{natbib} % 修改为数字引用样式，解决与作者-年份引用样式的不兼容问题
 \usepackage{bibentry}
 \usepackage{cite} % For grouped citations like (1, 2, 3)
 
