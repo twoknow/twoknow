@@ -1,0 +1,235 @@
+
+
+clearAll
+
+
+needsPackage "Polyhedra"
+needsPackage "NormalToricVarieties"
+needsPackage "LatticePolytopes"
+
+V_5 = matrix {
+    {0,0,0,0,0},  -- Origin
+    {1,0,0,0,0},  -- e_1
+    {0,1,0,0,0},  -- e_2
+    {0,0,1,0,0},  -- e_3
+    {0,0,0,1,0},  -- e_4
+    {0,0,0,0,1},  -- e_5
+    {1,1,0,0,0},  -- Edge (1,2)
+    {0,1,1,0,0},  -- Edge (2,3)
+    {0,0,1,1,0},  -- Edge (3,4)
+    {0,0,0,1,1},  -- Edge (4,5)
+    {1,0,0,0,1}   -- Edge (5,1)
+}
+
+V5 = transpose V_5
+P5 = convexHull V5
+
+dim P5
+--answer: 5
+
+
+
+
+uList1 = latticePoints  P5 ;
+
+# uList1  --  answer:   11
+
+apply ( uList1,  p  -> flatten entries p)
+  -- answer: {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 0, 0, 1, 1}, 
+--            {0,0, 1, 0, 0}, {0, 0, 1, 1, 0}, {0, 1, 0, 0, 0}, {0, 1, 1, 0, 0}, 
+--            {1, 0, 0,0, 0}, {1, 0, 0, 0, 1}, {1, 1, 0, 0, 0}}
+
+apply (  interiorLatticePoints  P5,  p  -> flatten entries p)
+--answer: {}
+
+
+
+uList =  {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 1}, {0, 0, 0, 1, 0}, {0, 0, 0, 1, 1}, 
+         {0,0, 1, 0, 0}, {0, 0, 1, 1, 0}, {0, 1, 0, 0, 0}, {0, 1, 1, 0, 0}, 
+           {1, 0, 0,0, 0}, {1, 0, 0, 0, 1}, {1, 1, 0, 0, 0}}
+
+
+
+isNormal P5
+  -- answer:   true
+
+oldS= QQ [ t_0..t_5]
+
+R = QQ [x_1..x_(# uList), Degrees =>{ ( # uList ) : 1 }]
+
+matrixM = matrix { toList  apply (uList,  p -> t_0*t_1^(p_0) *t_2^(p_1)*t_3^(p_2)*t_4^(p_3)*t_5^(p_4) ) }
+
+I = kernel map ( oldS, R,  matrixM )
+
+
+
+isHomogeneous I
+  -- answer:   true 
+
+( codim I, betti res I )
+--codim 5, Gorenstein
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+V_6 = matrix {
+    {0,0,0,0,0,0},  -- Origin
+    {1,0,0,0,0,0},  -- e_1
+    {0,1,0,0,0,0},  -- e_2
+    {0,0,1,0,0,0},  -- e_3
+    {0,0,0,1,0,0},  -- e_4
+    {0,0,0,0,1,0},  -- e_5
+    {0,0,0,0,0,1},  -- e_6
+    {1,1,0,0,0,0},  -- Edge (1,2)
+    {0,1,1,0,0,0},  -- Edge (2,3)
+    {0,0,1,1,0,0},  -- Edge (3,4)
+    {0,0,0,1,1,0},  -- Edge (4,5)
+    {0,0,0,0,1,1},  -- Edge (5,6)
+    {1,0,0,0,0,1}   -- Edge (6,1)
+}
+
+V6 = transpose V_6
+
+P6 = convexHull V6
+
+dim P6
+--answer:6
+
+
+
+uList2 = latticePoints  P6 ;
+
+# uList2  --  answer:   13
+
+apply ( uList2,  p  -> flatten entries p)
+  -- answer: {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 1}, {0, 0, 0, 0, 1, 0}, 
+ --             {0, 0, 0, 0,1, 1}, {0, 0, 0, 1, 0, 0}, {0, 0, 0, 1, 1, 0}, 
+ --             {0, 0, 1, 0, 0, 0}, {0, 0,1, 1, 0, 0}, {0, 1, 0, 0, 0, 0}, 
+ --             {0, 1, 1, 0, 0, 0}, {1, 0, 0, 0, 0, 0},{1, 0, 0, 0, 0, 1}, 
+ --             {1, 1, 0, 0, 0, 0}}
+
+apply (  interiorLatticePoints  P6,  p  -> flatten entries p)
+--answer: {}
+
+
+
+uList = {{0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 1}, {0, 0, 0, 0, 1, 0}, 
+             {0, 0, 0, 0,1, 1}, {0, 0, 0, 1, 0, 0}, {0, 0, 0, 1, 1, 0}, 
+              {0, 0, 1, 0, 0, 0}, {0, 0,1, 1, 0, 0}, {0, 1, 0, 0, 0, 0}, 
+              {0, 1, 1, 0, 0, 0}, {1, 0, 0, 0, 0, 0},{1, 0, 0, 0, 0, 1}, 
+              {1, 1, 0, 0, 0, 0}}
+
+isNormal P6
+  -- answer:   true
+
+oldS= QQ [ t_0..t_6]
+
+R = QQ [x_1..x_(# uList), Degrees =>{ ( # uList ) : 1 }]
+
+matrixM = matrix { toList  apply (uList,  p -> t_0*t_1^(p_0) *t_2^(p_1)*t_3^(p_2)*t_4^(p_3)*t_5^(p_4)*t_6^(p_5) ) }
+
+I = kernel map ( oldS, R,  matrixM )
+
+
+
+isHomogeneous I
+  -- answer:   true 
+
+( codim I, betti res I )
+--(codim 6, CM)
+
+
+
+
+
+
+
+
+
+
+V_7 = matrix {
+    {0,0,0,0,0,0,0},  -- Origin
+    {1,0,0,0,0,0,0},  -- e_1
+    {0,1,0,0,0,0,0},  -- e_2
+    {0,0,1,0,0,0,0},  -- e_3
+    {0,0,0,1,0,0,0},  -- e_4
+    {0,0,0,0,1,0,0},  -- e_5
+    {0,0,0,0,0,1,0},  -- e_6
+    {0,0,0,0,0,0,1},  -- e_7
+    {1,1,0,0,0,0,0},  -- Edge (1,2)
+    {0,1,1,0,0,0,0},  -- Edge (2,3)
+    {0,0,1,1,0,0,0},  -- Edge (3,4)
+    {0,0,0,1,1,0,0},  -- Edge (4,5)
+    {0,0,0,0,1,1,0},  -- Edge (5,6)
+    {0,0,0,0,0,1,1},  -- Edge (6,7)
+    {1,0,0,0,0,0,1}  -- Edge (7,1)
+}
+
+V7 = transpose V_7
+P7 = convexHull V7
+
+dim P7
+--answer: 7
+
+
+
+
+uList1 = latticePoints  P7 ;
+
+# uList1  --  answer:  15
+
+apply ( uList1,  p  -> flatten entries p)
+  -- answer:{{0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 1}, {0, 0, 0, 0, 0, 1, 0}, 
+--           {0,0, 0, 0, 0, 1, 1}, {0, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 1, 1, 0}, 
+--           {0, 0, 0,1, 0, 0, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 1, 0, 0, 0, 0}, 
+--           {0, 0, 1, 1, 0,0, 0}, {0, 1, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}, 
+--           {1, 0, 0, 0, 0, 0,0}, {1, 0, 0, 0, 0, 0, 1}, {1, 1, 0, 0, 0, 0, 0}}
+
+apply (  interiorLatticePoints  P7,  p  -> flatten entries p)
+--answer: {}
+
+
+
+uList =  {{0, 0, 0, 0, 0, 0, 0}, {0, 0, 0, 0, 0, 0, 1}, {0, 0, 0, 0, 0, 1, 0}, 
+           {0,0, 0, 0, 0, 1, 1}, {0, 0, 0, 0, 1, 0, 0}, {0, 0, 0, 0, 1, 1, 0}, 
+           {0, 0, 0,1, 0, 0, 0}, {0, 0, 0, 1, 1, 0, 0}, {0, 0, 1, 0, 0, 0, 0}, 
+           {0, 0, 1, 1, 0,0, 0}, {0, 1, 0, 0, 0, 0, 0}, {0, 1, 1, 0, 0, 0, 0}, 
+           {1, 0, 0, 0, 0, 0,0}, {1, 0, 0, 0, 0, 0, 1}, {1, 1, 0, 0, 0, 0, 0}}
+
+
+
+isNormal P7
+  -- answer:   true
+
+oldS= QQ [ t_0..t_7]
+
+R = QQ [x_1..x_(# uList), Degrees =>{ ( # uList ) : 1 }]
+
+matrixM = matrix { toList  apply (uList,  p -> t_0*t_1^(p_0) *t_2^(p_1)*t_3^(p_2)*t_4^(p_3)*t_5^(p_4)*t_6^(p_5)*t_7^(p_6) ) }
+
+I = kernel map ( oldS, R,  matrixM )
+
+
+
+isHomogeneous I
+  -- answer:   true 
+
+( codim I, betti res I )
+--answer: codim 7, Gorenstein

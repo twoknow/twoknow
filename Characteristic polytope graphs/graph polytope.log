@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.5.15)  24 JUN 2025 16:10
+This is XeTeX, Version 3.141592653-2.6-0.999997 (MiKTeX 25.4) (preloaded format=xelatex 2025.5.15)  8 JUL 2025 15:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -786,11 +786,6 @@ File: ufplmbb.fd 2003/10/30 Fontinst v1.914 font definitions for U/fplmbb.
 [1
 
 ]
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-31.
- (D:\MikTex\tex/latex/psnfss\ts1ptm.fd
-File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-)
 
 [2] (graph polytope.aux)
  ***********
@@ -799,12 +794,12 @@ L3 programming layer <2025-04-14>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 19374 strings out of 405057
- 405660 string characters out of 5506823
+ 19344 strings out of 405057
+ 405224 string characters out of 5506823
  766651 words of memory out of 5000000
- 45663 multiletter control sequences out of 15000+600000
- 663551 words of font info for 95 fonts, out of 8000000 for 9000
+ 45637 multiletter control sequences out of 15000+600000
+ 663237 words of font info for 94 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 102i,13n,107p,480b,197s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 102i,13n,107p,480b,188s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on graph polytope.pdf (2 pages).

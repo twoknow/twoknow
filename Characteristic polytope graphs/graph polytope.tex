@@ -122,17 +122,11 @@ The complete graph $K_n$ has all subsets of $[n]$ with cardinality at most 2 as 
 \[P_{\chi}(K_n) = \text{conv} \{\chi_S \mid S \subseteq [n], |S| \le 2 \}.\]
 
 \subsubsection{Example: Cycle graph $C_n$}
-The cycle graph $C_n$ has faces corresponding to all subsets of vertices that induce a connected subgraph. The characteristic polytope of $C_n$ is given by:
-\[P_{\chi}(C_n) = \text{conv} \{\chi_S \mid S \subseteq [n], \text{ induces a connected subgraph}\}.\]
+The cycle graph $C_n$ has faces corresponding to all subsets of vertices that induce a closed walk. The characteristic polytope of $C_n$ is given by:
+\[P_{\chi}(C_n) = \text{conv} \{\chi_S \mid S \subseteq [n], \text{ induces a closed walk}\}.\]
 
-\subsection{Volume and Ehrhart series}
-We are mainly interested in the volume and Ehrhart series of the characteristic polytopes. We list the volume and Ehrhart series of $n$-gon up to 5-gon as follows:
-\begin{itemize}
-    \item 3-gon: 
-    \begin{align*}
-    \text{vol }P_{\chi}(Q_3) &= 1, \\
-    \text{Ehr}_{P_{\chi}(Q_3)}(z) &= \frac{1 + 4z + z^2}{(1 - z)^3}.
-    \end{align*}
-\end{itemize}
+\subsection{h*-vector of the characteristic polytope}
+We are mainly interested in the unimodality of the h*-vector of the characteristic polytopes. 
+
 
 \end{document}
